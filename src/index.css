@@ -1,4 +1,23 @@
 .container{
+display: flex;
+margin:20px;
+}
+
+
+.add_parcel{
+display: flex;
+justify-content: center;
+margin-top: 5%;
+gap: 5px;
+}
+
+.search__control{
+    width: 40%;
+}
+
+.header__parcel{
     display: flex;
-    margin:20px;
+    justify-content: center;
+    margin-top: 5%;
+     
 }
