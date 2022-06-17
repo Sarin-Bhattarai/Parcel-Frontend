@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Parcel from "./pages/Parcel";
 import Status from "./pages/Status";
+import SingleParcel from "./pages/SingleParcel";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/parcels" exact element={<Parcel />} />
+          <Route path="/parcels/:id" exact element={<SingleParcel />} />
           <Route path="/status" exact element={<Status />} />
         </Routes>
       </Router>

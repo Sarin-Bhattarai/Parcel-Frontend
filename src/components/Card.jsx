@@ -1,7 +1,8 @@
 import React from "react";
 import "../utils/css/card.css";
+import { Link } from "react-router-dom";
 
-const Card = ({ code, imageUrl, body }) => {
+const Card = ({ code, imageUrl, body, id }) => {
   return (
     <div className="card-container">
       <div className="image-container">
@@ -13,7 +14,9 @@ const Card = ({ code, imageUrl, body }) => {
         </div>
         <p>{body}</p>
         <div className="card-button">
-          <button>View Details</button>
+          <Link to={`/parcels/${id}`}>
+            <button>View Details</button>
+          </Link>
         </div>
       </div>
     </div>

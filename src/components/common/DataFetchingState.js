@@ -1,10 +1,15 @@
 import React from "react";
+import { Button, Space } from "antd";
 
 const DataFetchingState = ({ loading, error, children, onClickTryAgain }) => {
   if (error) {
     return (
       <div>
-        <button onClick={onClickTryAgain}>Try Again</button>
+        <Space align="center">
+          <Button type="primary" onClick={onClickTryAgain}>
+            Try Again
+          </Button>
+        </Space>
       </div>
     );
   }
@@ -13,5 +18,4 @@ const DataFetchingState = ({ loading, error, children, onClickTryAgain }) => {
   }
   return children;
 };
-
 export default DataFetchingState;
