@@ -2,8 +2,9 @@ import React from "react";
 
 const Status = () => {
   return (
-    <div>
-      <h1>Status-page</h1>
+    <div className="status-container">
+      <input type="search" />
+      <button>Search</button>
     </div>
   );
 };

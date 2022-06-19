@@ -72,10 +72,6 @@ const Parcel = () => {
     );
   };
 
-  if (state.error) {
-    return <h3>Parcel code must be 4 character long!</h3>;
-  }
-
   return (
     <div>
       <h2 className="header__parcel">Create Parcel</h2>

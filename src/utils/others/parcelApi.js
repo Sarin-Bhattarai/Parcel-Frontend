@@ -34,3 +34,29 @@ export const getSingleParcel = (id) => {
     return response.json();
   });
 };
+
+/*For updating parcel */
+export const updateParcel = (id, parcel) => {
+  return fetch(`${API}/parcels/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(parcel),
+  }).then((response) => {
+    return response.json();
+  });
+};
+
+export const deleteParcel = (id) => {
+  return fetch(`${API}/parcels/${id}`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  }).then((response) => {
+    return response.json();
+  });
+};
