@@ -51,16 +51,16 @@ const Home = () => {
         </Timeline>
         <div className="progress-container">
           <Progress
+            strokeColor={{
+              "0%": "#108ee9",
+              "75%": "#87d068",
+            }}
             type="circle"
             percent={75}
             width="155px"
             format={(percent) => `${percent}% Parcels delivered`}
           />
           <Progress
-            strokeColor={{
-              "0%": "#108ee9",
-              "100%": "#87d068",
-            }}
             type="circle"
             status="normal"
             percent={60}

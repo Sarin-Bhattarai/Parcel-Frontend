@@ -79,13 +79,7 @@ gap: 5px;
 
 }
 
-/* .home-container{
-    background-color:powderblue;
-    margin-top: -45px;
-    height: 250px;
-} */
-
-
+/* for status page */
 .status-container{
     display: flex;
     justify-content: center;
@@ -99,4 +93,65 @@ gap: 5px;
 
 .status-container button{
     width: 10%;
+}
+
+/* signup */
+
+
+.signup-container{
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 5%;
+    justify-content: center;
+}
+
+
+input,
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.signup-button{
+    width: 100%;
+        background-color: #060b26;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+}
+
+
+.signup-button:hover{
+    background-color: #45a049;
+}
+
+/* signin */
+.signin-container {
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 5%;
+    justify-content: center;
+}
+
+
+.signin-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+}
+
+.signup-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
 }

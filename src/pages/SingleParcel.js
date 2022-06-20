@@ -6,7 +6,7 @@ import {
 } from "../utils/others/parcelApi";
 import DataFetchingState from "../components/common/DataFetchingState";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
-import { Modal, Space, Button, Input, Select } from "antd";
+import { Modal, Space, Button, Input, Select, message } from "antd";
 import { useParams } from "react-router-dom";
 
 const SingleParcel = () => {
@@ -18,6 +18,7 @@ const SingleParcel = () => {
     error: null,
     parcel: {},
     modalVisible: false,
+    updateLoading: false,
   });
 
   const fetchParcel = (id) => {
@@ -52,11 +53,11 @@ const SingleParcel = () => {
     });
   };
 
-  const handleChange = (name) => (event) => {
+  const handleChange = (name, value) => {
     setState({
       ...state,
       error: null,
-      parcel: { ...state.parcel, [name]: event.target.value },
+      parcel: { ...state.parcel, [name]: value },
     });
   };
 
@@ -76,17 +77,19 @@ const SingleParcel = () => {
       remarks: state.parcel.remarks,
     };
     updateParcel(id, parcel)
-      .then((data) => {
+      .then((parcel) => {
         setState({
           ...state,
-          code: data.parcel.code,
-          status: data.parcel.status,
-          remarks: data.parcel.remarks,
-          error: null,
+          code: parcel.code,
+          status: parcel.status,
+          remarks: parcel.remarks,
+          updateLoading: false,
         });
+        message.success("successfully updated parcel");
       })
       .catch((error) => {
-        setState({ ...state, error: error, loading: false });
+        setState({ ...state, updateLoading: false });
+        message.error(error?.message || "error updating parcel");
       });
   };
 
@@ -128,6 +131,7 @@ const SingleParcel = () => {
                     title="Edit Parcel"
                     style={{ top: 20 }}
                     visible={state.modalVisible}
+                    okButtonProps={{ loading: state.updateLoading }}
                     onOk={(e) => {
                       e.preventDefault();
                       setState(
@@ -141,32 +145,33 @@ const SingleParcel = () => {
                       <Input
                         type="number"
                         placeholder="code"
-                        onChange={handleChange("code")}
+                        onChange={(e) => handleChange("code", e.target.value)}
                         value={state.parcel.code}
                         name="code"
                       />
                       <br />
                       <br />
-                      <select
+                      <Select
                         defaultValue="pending"
                         style={{ width: "100%", height: "28px" }}
-                        onChange={handleChange("status")}
+                        onChange={(value) => handleChange("status", value)}
                         value={state.parcel.status}
                         name="status"
                       >
-                        <option value="processing">processing</option>
-                        <option value="delivering">delivering</option>
-                        <option value="rejected">rejected</option>
-                        <option value="delivered">delivered</option>
-                      </select>
+                        <Option value="pending">pending</Option>
+                        <Option value="processing">processing</Option>
+                        <Option value="delivering">delivering</Option>
+                        <Option value="rejected">rejected</Option>
+                        <Option value="delivered">delivered</Option>
+                      </Select>
                       <br />
                       <br />
                       <Input
                         type="text"
                         placeholder="remarks"
                         required
-                        onChange={handleChange("remarks")}
-                        value={state.parcel.remarks}
+                        onChange={(e) => handleChange("remark", e.target.value)}
+                        value={state.parcel.remark}
                         name="remarks"
                       />
                     </form>

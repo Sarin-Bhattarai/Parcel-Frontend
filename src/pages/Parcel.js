@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getAllParcels, createParcel } from "../utils/others/parcelApi";
 import Card from "../components/Card";
-import { Link } from "react-router-dom";
 import "../index.css";
 import DataFetchingState from "../components/common/DataFetchingState";
 import Swal from "sweetalert2";
@@ -23,7 +22,8 @@ const Parcel = () => {
     event.preventDefault();
     setState({ ...state, error: null, loading: false });
 
-    createParcel(state.newParcel).then((data) =>
+    createParcel(state.newParcel).then(
+      (data) => setState({ ...state, error: null, loading: false }),
       Swal.fire({
         title: "Success!",
         text: "Parcel Added!",
