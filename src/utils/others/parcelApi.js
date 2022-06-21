@@ -10,8 +10,8 @@ export const getAllParcels = () => {
 };
 
 /* For creating new parcels*/
-export const createParcel = (code) => {
-  const data = { code };
+export const createParcel = (code, name, description) => {
+  const data = { code, name, description };
   console.log(data);
   return fetch(`${API}/parcels`, {
     //first argument is URL we defined in back end and the second argument is the object you get(method, headers and so on)
@@ -20,7 +20,7 @@ export const createParcel = (code) => {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(code),
   }).then((response) => {
     return response.json();
   });

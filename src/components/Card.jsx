@@ -2,7 +2,7 @@ import React from "react";
 import "../utils/css/card.css";
 import { Link } from "react-router-dom";
 
-const Card = ({ code, imageUrl, body, id }) => {
+const Card = ({ code, imageUrl, description, name, id }) => {
   return (
     <div className="card-container">
       <div className="image-container">
@@ -10,9 +10,10 @@ const Card = ({ code, imageUrl, body, id }) => {
       </div>
       <div className="card-content">
         <div className="card-code">
-          <h3>{code}</h3>
+          <h2>{name}</h2>
         </div>
-        <p>{body}</p>
+        <h3 className="card-code">{code}</h3>
+        <p>{description}</p>
         <div className="card-button">
           <Link to={`/parcels/${id}`}>
             <button>View Details</button>

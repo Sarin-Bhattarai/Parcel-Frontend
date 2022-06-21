@@ -61,15 +61,6 @@ const SingleParcel = () => {
     });
   };
 
-  // const selectChange = (value) => (name) => (event) => {
-  //   console.log(`selected ${value}`);
-  //   setState({
-  //     ...state,
-  //     error: null,
-  //     parcel: { ...state.parcel, [name]: event.target.value },
-  //   });
-  // };
-
   const submitParcelForm = () => {
     const parcel = {
       code: state.parcel.code,
@@ -85,11 +76,11 @@ const SingleParcel = () => {
           remarks: parcel.remarks,
           updateLoading: false,
         });
-        message.success("successfully updated parcel");
+        message.success("Successfully updated parcel");
       })
       .catch((error) => {
         setState({ ...state, updateLoading: false });
-        message.error(error?.message || "error updating parcel");
+        message.error(error?.message || "Error updating parcel");
       });
   };
 
@@ -108,8 +99,10 @@ const SingleParcel = () => {
         <table className="table-container">
           <thead>
             <tr>
+              <th>Name</th>
               <th>Code</th>
               <th>Status</th>
+              <th>Description</th>
               <th>Remarks</th>
               <th>Edit</th>
               <th>Delete</th>
@@ -117,8 +110,10 @@ const SingleParcel = () => {
           </thead>
           <tbody>
             <tr>
+              <td>{state?.parcel?.name}</td>
               <td>{state?.parcel?.code}</td>
               <td>{state?.parcel?.status}</td>
+              <td>{state?.parcel?.description}</td>
               <td>{state?.parcel?.remarks?.[0]}</td>
               <td>
                 <Space wrap>

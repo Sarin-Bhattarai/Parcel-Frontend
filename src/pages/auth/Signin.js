@@ -3,6 +3,8 @@ import {
   authenticate,
   isAuthenticated,
 } from "../../components/common/authPermission";
+import { signin } from "../../utils/others/authApi";
+import { message } from "antd";
 
 const Signin = () => {
   const [values, setValues] = useState({
@@ -20,21 +22,49 @@ const Signin = () => {
 
   const clickSubmit = (event) => {
     event.preventDefault();
+    setValues({ ...values, error: null });
+    signin({ email, password })
+      .then(({ data }) => {
+        authenticate(data, () => {
+          setValues({
+            ...values,
+            loading: false,
+          });
+        });
+        window.location.href = "/";
+      })
+      .catch((error) => {
+        setValues({ ...values, error: error, loading: false });
+        message.error(error?.message || "Error while logging in");
+        console.log(error);
+      });
   };
 
   const singinForm = () => (
     <div className="signin-container">
       <h2 className="signin-header">Login Page</h2>
-      <form>
+      <form onSubmit={clickSubmit}>
         <label>Email</label>
-        <input type="email" required placeholder="Your email" />
+        <input
+          onChange={handleChange("email")}
+          type="email"
+          required
+          placeholder="Your email"
+          value={email}
+        />
         <br />
         <br />
         <label>Password</label>
-        <input type="password" required placeholder="Your email password" />
+        <input
+          onChange={handleChange("password")}
+          type="password"
+          required
+          placeholder="Your email password"
+          value={password}
+        />
         <br />
         <br />
-        <button onClick={clickSubmit} className="signup-button">
+        <button type="submit" className="signup-button">
           Signin
         </button>
       </form>

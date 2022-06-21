@@ -11,9 +11,9 @@ const Navbar = () => {
         <li>
           <a href="/parcels">Parcels</a>
         </li>
-        <li>
+        {/* <li>
           <a href="/status">Status</a>
-        </li>
+        </li> */}
         <li>
           <a href="/login">Login</a>
         </li>
