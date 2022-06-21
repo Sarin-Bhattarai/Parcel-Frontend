@@ -13,7 +13,7 @@ const Card = ({ code, imageUrl, description, name, id }) => {
           <h2>{name}</h2>
         </div>
         <h3 className="card-code">{code}</h3>
-        <p>{description}</p>
+        <p className="card-desc">{description}</p>
         <div className="card-button">
           <Link to={`/parcels/${id}`}>
             <button>View Details</button>

@@ -41,6 +41,7 @@ const Parcel = () => {
           loading: false,
         });
         message.success("Parcel created");
+        window.location.href = "/parcels";
       })
       .catch((error) => {
         setState({ ...state, error: error, loading: false });
@@ -50,6 +51,15 @@ const Parcel = () => {
   };
 
   //create parcel process ends here
+
+  const Searchpart = () => {
+    return (
+      <form className="search-container">
+        <input type="search" />
+        <button className="search-button">search</button>
+      </form>
+    );
+  };
 
   const fetchParcels = () => {
     setState({ ...state, loading: true, error: null });
@@ -69,6 +79,7 @@ const Parcel = () => {
 
   return (
     <div>
+      {Searchpart()}
       <Space wrap>
         <Button
           style={{

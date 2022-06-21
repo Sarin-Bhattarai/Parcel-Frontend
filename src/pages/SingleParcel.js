@@ -5,7 +5,11 @@ import {
   updateParcel,
 } from "../utils/others/parcelApi";
 import DataFetchingState from "../components/common/DataFetchingState";
-import { ExclamationCircleOutlined } from "@ant-design/icons";
+import {
+  ExclamationCircleOutlined,
+  DeleteOutlined,
+  EditOutlined,
+} from "@ant-design/icons";
 import { Modal, Space, Button, Input, Select, message } from "antd";
 import { useParams } from "react-router-dom";
 
@@ -40,11 +44,14 @@ const SingleParcel = () => {
 
       onOk() {
         deleteParcel(id)
-          .then((parcel) => console.log(deleteParcel))
+          .then((parcel) => {
+            console.log(deleteParcel);
+            message.success("Parcel deleted");
+          })
           .catch((error) => {
             setState({ ...state, error: error, loading: false });
+            message.error(error?.message || "Error deleting parcel");
           });
-        console.log(deleteParcel);
       },
 
       onCancel() {
@@ -64,7 +71,9 @@ const SingleParcel = () => {
   const submitParcelForm = () => {
     const parcel = {
       code: state.parcel.code,
+      name: state.parcel.name,
       status: state.parcel.status,
+      description: state.parcel.description,
       remarks: state.parcel.remarks,
     };
     updateParcel(id, parcel)
@@ -72,7 +81,9 @@ const SingleParcel = () => {
         setState({
           ...state,
           code: parcel.code,
+          name: parcel.name,
           status: parcel.status,
+          description: parcel.description,
           remarks: parcel.remarks,
           updateLoading: false,
         });
@@ -95,94 +106,109 @@ const SingleParcel = () => {
       onClickTryAgain={fetchParcel}
     >
       <>
-        <h1 className="table-header">Perform your action </h1>
-        <table className="table-container">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Code</th>
-              <th>Status</th>
-              <th>Description</th>
-              <th>Remarks</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{state?.parcel?.name}</td>
-              <td>{state?.parcel?.code}</td>
-              <td>{state?.parcel?.status}</td>
-              <td>{state?.parcel?.description}</td>
-              <td>{state?.parcel?.remarks?.[0]}</td>
-              <td>
-                <Space wrap>
-                  <Button
-                    onClick={() => setState({ ...state, modalVisible: true })}
+        <h1 className="perform-header">Perform your action </h1>
+        <div className="perform-container">
+          <h2 className="data-info">Name : {state?.parcel?.name}</h2>
+          <h2 className="data-info">Code : {state?.parcel?.code}</h2>
+          <h2 className="data-info">Status : {state?.parcel?.status}</h2>
+          <h2 className="data-info">
+            Description : {state?.parcel?.description}
+          </h2>
+          <h2 className="data-info">Remarks : {state?.parcel?.remarks}</h2>
+
+          <div className="perform__button">
+            <Space wrap>
+              <Button
+                onClick={() => setState({ ...state, modalVisible: true })}
+              >
+                <EditOutlined style={{ color: "#013220", fontSize: "15px" }} />
+                Edit
+              </Button>
+              <Modal
+                title="Edit Parcel"
+                style={{ top: 20 }}
+                visible={state.modalVisible}
+                okButtonProps={{ loading: state.updateLoading }}
+                onOk={(e) => {
+                  e.preventDefault();
+                  setState(
+                    { ...state, modalVisible: false },
+                    submitParcelForm()
+                  );
+                }}
+                onCancel={() => setState({ ...state, modalVisible: false })}
+              >
+                <form>
+                  <Input
+                    type="number"
+                    placeholder="code"
+                    onChange={(e) => handleChange("code", e.target.value)}
+                    value={state.parcel.code}
+                    name="code"
+                    disabled
+                  />
+                  <br />
+                  <br />
+                  <Input
+                    type="text"
+                    placeholder="name"
+                    onChange={(e) => handleChange("name", e.target.value)}
+                    value={state.parcel.name}
+                    name="name"
+                  />
+                  <br />
+                  <br />
+                  <Select
+                    defaultValue="pending"
+                    style={{ width: "100%", height: "28px" }}
+                    onChange={(value) => handleChange("status", value)}
+                    value={state.parcel.status}
+                    name="status"
                   >
-                    Edit
-                  </Button>
-                  <Modal
-                    title="Edit Parcel"
-                    style={{ top: 20 }}
-                    visible={state.modalVisible}
-                    okButtonProps={{ loading: state.updateLoading }}
-                    onOk={(e) => {
-                      e.preventDefault();
-                      setState(
-                        { ...state, modalVisible: false },
-                        submitParcelForm()
-                      );
-                    }}
-                    onCancel={() => setState({ ...state, modalVisible: false })}
-                  >
-                    <form>
-                      <Input
-                        type="number"
-                        placeholder="code"
-                        onChange={(e) => handleChange("code", e.target.value)}
-                        value={state.parcel.code}
-                        name="code"
-                      />
-                      <br />
-                      <br />
-                      <Select
-                        defaultValue="pending"
-                        style={{ width: "100%", height: "28px" }}
-                        onChange={(value) => handleChange("status", value)}
-                        value={state.parcel.status}
-                        name="status"
-                      >
-                        <Option value="pending">pending</Option>
-                        <Option value="processing">processing</Option>
-                        <Option value="delivering">delivering</Option>
-                        <Option value="rejected">rejected</Option>
-                        <Option value="delivered">delivered</Option>
-                      </Select>
-                      <br />
-                      <br />
-                      <Input
-                        type="text"
-                        placeholder="remarks"
-                        required
-                        onChange={(e) => handleChange("remark", e.target.value)}
-                        value={state.parcel.remark}
-                        name="remarks"
-                      />
-                    </form>
-                  </Modal>
-                </Space>
-              </td>
-              <td>
-                <Space wrap>
-                  <Button onClick={deleteConfirm} type="dashed">
-                    Delete
-                  </Button>
-                </Space>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                    <Option value="pending">pending</Option>
+                    <Option value="processing">processing</Option>
+                    <Option value="delivering">delivering</Option>
+                    <Option value="rejected">rejected</Option>
+                    <Option value="delivered">delivered</Option>
+                  </Select>
+                  <br />
+                  <br />
+
+                  <Input
+                    type="text"
+                    placeholder="description"
+                    onChange={(e) =>
+                      handleChange("description", e.target.value)
+                    }
+                    value={state.parcel.description}
+                    name="description"
+                  />
+                  <br />
+                  <br />
+                  <Input
+                    type="text"
+                    placeholder="remarks"
+                    required
+                    onChange={(e) => handleChange("remark", e.target.value)}
+                    value={state.parcel.remark}
+                    name="remarks"
+                  />
+                </form>
+              </Modal>
+            </Space>
+            <Space wrap>
+              <Button onClick={deleteConfirm} type="dashed">
+                <DeleteOutlined
+                  style={{
+                    color: "crimson",
+                    fontSize: "15px",
+                  }}
+                />
+                Delete
+              </Button>
+            </Space>
+          </div>
+        </div>
       </>
     </DataFetchingState>
   );

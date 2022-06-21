@@ -17,61 +17,41 @@ gap: 5px;
     width: 40%;
 }
 
-
-
-/* Table css */
-
-.table-container{
-    font-family: Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        width: 80%;
-        margin-left: 10%;
-}
-
-
-.table-container td, th{
-    border: 1px solid #ddd;
-        padding: 8px;
-}
-
-.table-container tr:nth-child(n){background-color: #f2f2f2;}
-
-
-
-.table-container th{
-    padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        background-color: #060b26;
-        color: white;
-}
-
-
-.table-header{
+.perform-header{
     display: flex;
     justify-content: center;
-    margin-top: 5%;
-}
-
-
-.table-button{
-    background-color: #060b26;
-        border: none;
-        color: white;
-        padding: 12px 28px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 10px;
-        display: flex;
-        justify-content: center;
+    margin: 5%;
 }
 
 .progress-container{
     display: flex;
     justify-content: center;
     gap:15px;
+}
 
+/* singleParcel css */
+
+.perform-container{
+    padding: 1rem;
+    box-shadow: 4px 4px 4px 4px gray;
+    width: 30%;
+    display:block;
+   margin-left: 35%;
+   background-color: #060b26;
+    border-radius: 17px;
+    margin-top: -3%;
+}
+
+.data-info{
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+
+.perform__button{
+display: flex;
+justify-content: center;
+gap: 20px;
 }
 
 /* for status page */
@@ -149,4 +129,21 @@ select {
     justify-content: center;
     align-items: center;
     opacity: 0.8;
+}
+
+/* search css */
+.search-container{
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    height: 40px;
+    margin-top: 3%;
+    margin-left: 30%;
+    gap:5px
+}
+
+
+.search-button{
+    border-radius: 3px;
+    height: 38px;
 }
