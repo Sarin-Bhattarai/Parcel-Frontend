@@ -146,4 +146,5 @@ select {
 .search-button{
     border-radius: 3px;
     height: 38px;
+    width: 90px;
 }

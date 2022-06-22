@@ -15,6 +15,13 @@ const Parcel = () => {
     modalVisible: false,
   });
 
+  //for search functionality
+  const [items, setItems] = useState([]);
+  //set search query to empty string
+  const [q, setQ] = useState("");
+  //     we only what to search parcels by name
+  const [searchParam] = useState(["name"]);
+
   //create parcel process
   const handleChange = (name, value) => {
     setState({
@@ -52,12 +59,30 @@ const Parcel = () => {
 
   //create parcel process ends here
 
+  const searchFunction = () => {
+    return items.filter((item) => {
+      return searchParam.some((newItem) => {
+        return (
+          item[newItem].toString().toLowerCase().indexOf(q.toLowerCase()) > -1
+        );
+      });
+    });
+  };
+
   const Searchpart = () => {
     return (
-      <form className="search-container">
-        <input type="search" />
-        <button className="search-button">search</button>
-      </form>
+      searchFunction(),
+      (
+        <form className="search-container">
+          <input
+            type="search"
+            placeholder="Search your parcel"
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+          />
+          {/* <button className="search-button">search</button> */}
+        </form>
+      )
     );
   };
 

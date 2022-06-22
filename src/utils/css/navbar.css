@@ -46,3 +46,12 @@ body{
 }
 
 
+.logout-button{
+    background-color: #060b26;
+    color: white;
+    font-size: 15px;
+    border: none;
+}
+
+
+
