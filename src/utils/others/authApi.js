@@ -21,9 +21,5 @@ export const signout = (next) => {
   if (typeof window !== "undefined") {
     localStorage.removeItem("jwt");
     next();
-    return axios({
-      url: `${API}/auth/logout`,
-      method: "GET",
-    });
   }
 };

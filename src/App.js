@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Parcel from "./pages/Parcel";
-// import Status from "./pages/Status";
+import Status from "./pages/Status";
 import SingleParcel from "./pages/SingleParcel";
 import Signin from "./pages/auth/Signin";
 import Signup from "./pages/auth/Signup";
@@ -20,7 +20,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/parcels" exact element={<Parcel />} />
           <Route path="/parcels/:id" exact element={<SingleParcel />} />
-          {/* <Route path="/status" exact element={<Status />} /> */}
+          <Route path="/status" exact element={<Status />} />
           <Route path="/login" exact element={<Signin />} />
           <Route path="/register" exact element={<Signup />} />
         </Routes>

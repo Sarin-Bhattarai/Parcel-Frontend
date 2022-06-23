@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { signup } from "../../utils/others/authApi";
 import { Link } from "react-router-dom";
 import { message } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
 
 const Signup = () => {
   const [values, setValues] = useState({

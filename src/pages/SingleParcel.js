@@ -9,17 +9,20 @@ import {
   ExclamationCircleOutlined,
   DeleteOutlined,
   EditOutlined,
+  PlusCircleOutlined,
 } from "@ant-design/icons";
-import { Modal, Space, Button, Input, Select, message } from "antd";
-import { useParams } from "react-router-dom";
+import { Modal, Space, Button, Input, Select, message, Popover } from "antd";
+import { useParams, useNavigate } from "react-router-dom";
 
 const SingleParcel = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const { confirm } = Modal;
   const { Option } = Select;
   const [state, setState] = useState({
     loading: true,
     error: null,
+    newRemark: "",
     parcel: {},
     modalVisible: false,
     updateLoading: false,
@@ -47,6 +50,9 @@ const SingleParcel = () => {
           .then((parcel) => {
             console.log(deleteParcel);
             message.success("Parcel deleted");
+            setTimeout(() => {
+              navigate("/parcels");
+            }, 1000);
           })
           .catch((error) => {
             setState({ ...state, error: error, loading: false });
@@ -86,6 +92,7 @@ const SingleParcel = () => {
           description: parcel.description,
           remarks: parcel.remarks,
           updateLoading: false,
+          modalVisible: false,
         });
         message.success("Successfully updated parcel");
       })
@@ -94,6 +101,35 @@ const SingleParcel = () => {
         message.error(error?.message || "Error updating parcel");
       });
   };
+
+  const content = (
+    <div style={{ minWidth: "50%" }}>
+      <label>Remark</label>
+      <textarea
+        type="textarea"
+        onChange={(e) => setState({ ...state, newRemark: e.target.value })}
+        value={state.newRemark}
+        style={{ width: "100%" }}
+        name="new-remark"
+      />
+      <br />
+      <br />
+      <Button
+        onClick={() => {
+          setState({
+            ...state,
+            parcel: {
+              ...state.parcel,
+              remarks: [...state.parcel.remarks, state.newRemark],
+            },
+            newRemark: "",
+          });
+        }}
+      >
+        Add
+      </Button>
+    </div>
+  );
 
   useEffect(() => {
     fetchParcel(id);
@@ -114,7 +150,16 @@ const SingleParcel = () => {
           <h2 className="data-info">
             Description : {state?.parcel?.description}
           </h2>
-          <h2 className="data-info">Remarks : {state?.parcel?.remarks}</h2>
+          <div className="data-info">
+            <h2 className="data-info">Remarks: </h2>
+            <ul className="data-info">
+              {state?.parcel?.remarks?.map?.((text, key) => (
+                <li style={{ marginTop: "-10px", marginLeft: "2%" }} key={key}>
+                  {text}
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <div className="perform__button">
             <Space wrap>
@@ -126,19 +171,19 @@ const SingleParcel = () => {
               </Button>
               <Modal
                 title="Edit Parcel"
+                okText="Edit"
                 style={{ top: 20 }}
                 visible={state.modalVisible}
                 okButtonProps={{ loading: state.updateLoading }}
                 onOk={(e) => {
                   e.preventDefault();
-                  setState(
-                    { ...state, modalVisible: false },
-                    submitParcelForm()
-                  );
+                  submitParcelForm();
+                  setState({ ...state, modalVisible: false });
                 }}
                 onCancel={() => setState({ ...state, modalVisible: false })}
               >
                 <form>
+                  <label>Code</label>
                   <Input
                     type="number"
                     placeholder="code"
@@ -149,6 +194,7 @@ const SingleParcel = () => {
                   />
                   <br />
                   <br />
+                  <label>Name</label>
                   <Input
                     type="text"
                     placeholder="name"
@@ -158,6 +204,7 @@ const SingleParcel = () => {
                   />
                   <br />
                   <br />
+                  <label>Status</label>
                   <Select
                     defaultValue="pending"
                     style={{ width: "100%", height: "28px" }}
@@ -173,7 +220,7 @@ const SingleParcel = () => {
                   </Select>
                   <br />
                   <br />
-
+                  <label>Description</label>
                   <Input
                     type="text"
                     placeholder="description"
@@ -185,14 +232,31 @@ const SingleParcel = () => {
                   />
                   <br />
                   <br />
-                  <Input
-                    type="text"
-                    placeholder="remarks"
-                    required
-                    onChange={(e) => handleChange("remark", e.target.value)}
-                    value={state.parcel.remark}
-                    name="remarks"
-                  />
+                  <label>Remarks</label>
+                  <Popover content={content} title="Add remark">
+                    <PlusCircleOutlined
+                      style={{
+                        fontSize: "25px",
+                        float: "right",
+                        marginBottom: "5px",
+                        cursor: "pointer",
+                        color: "green",
+                      }}
+                    />
+                  </Popover>
+                  {state.parcel?.remarks?.map?.((text, key) => {
+                    return (
+                      <Input
+                        key={key}
+                        type="text"
+                        style={{ marginBottom: 5 }}
+                        disabled
+                        readOnly
+                        value={text}
+                        name="remark"
+                      />
+                    );
+                  })}
                 </form>
               </Modal>
             </Space>

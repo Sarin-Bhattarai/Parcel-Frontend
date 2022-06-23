@@ -1,9 +1,10 @@
 import React from "react";
-import { Carousel, Progress, Timeline } from "antd";
+import { Carousel, Progress, Timeline, Steps } from "antd";
 import first from "../utils/assets/real-one.jpg";
 import second from "../utils/assets/second-one.jpg";
 
 const Home = () => {
+  const { Step } = Steps;
   const onChange = (currentSlide) => {
     console.log(currentSlide);
   };
@@ -37,7 +38,6 @@ const Home = () => {
       <br />
       <br />
       <div className="home-container">
-        <h2 style={{ textAlign: "center" }}>Progress of Parcels</h2>
         <br />
         <Timeline style={{ float: "left", marginLeft: "5px" }}>
           <Timeline.Item>
@@ -49,33 +49,50 @@ const Home = () => {
           <Timeline.Item>Technical testing 2022-05-05</Timeline.Item>
           <Timeline.Item>Parcel rejected, 2022-05-01</Timeline.Item>
         </Timeline>
-        <div className="progress-container">
-          <Progress
-            strokeColor={{
-              "0%": "#108ee9",
-              "75%": "#87d068",
-            }}
-            type="circle"
-            percent={75}
-            width="155px"
-            format={(percent) => `${percent}% Parcels delivered`}
-          />
-          <Progress
-            type="circle"
-            status="normal"
-            percent={60}
-            width="155px"
-            format={(percent) => `${percent}% Parcels pending`}
-          />
-          <Progress
-            type="circle"
-            status="exception"
-            percent={55}
-            width="155px"
-            format={(percent) => `${percent}% Parcels rejected`}
-          />
-        </div>
       </div>
+      <div className="progress-container">
+        <h2 style={{ textAlign: "center", marginTop: "-3%" }}>
+          Progress of Parcels
+        </h2>
+        <Progress
+          strokeColor={{
+            "0%": "#108ee9",
+            "75%": "#87d068",
+          }}
+          type="circle"
+          percent={75}
+          width="155px"
+          format={(percent) => `${percent}% Parcels delivered`}
+        />
+        <Progress
+          type="circle"
+          status="normal"
+          percent={60}
+          width="155px"
+          format={(percent) => `${percent}% Parcels pending`}
+        />
+        <Progress
+          type="circle"
+          status="exception"
+          percent={55}
+          width="155px"
+          format={(percent) => `${percent}% Parcels rejected`}
+        />
+      </div>
+      <br />
+      <br />
+      <h2 style={{ float: "left", marginLeft: "1%" }}>
+        Progress step of Parcel
+      </h2>
+      <Steps current={1}>
+        <Step title="Packaging" description="Ready for delivering." />
+        <Step
+          title="In Progress"
+          subTitle="Left 01:10:08"
+          description="Delivering to Customer location."
+        />
+        <Step title="Waiting" description="Parcels to be delivered." />
+      </Steps>
     </div>
   );
 };

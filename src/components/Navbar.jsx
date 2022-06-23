@@ -3,6 +3,13 @@ import "../utils/css/navbar.css";
 import { isAuthenticated } from "./common/authPermission";
 import { signout } from "../utils/others/authApi";
 import { useNavigate } from "react-router-dom";
+import {
+  LogoutOutlined,
+  LoginOutlined,
+  UserOutlined,
+  TagOutlined,
+  QuestionCircleOutlined,
+} from "@ant-design/icons";
 
 const Navbar = () => {
   let navigate = useNavigate();
@@ -13,18 +20,35 @@ const Navbar = () => {
       </a>
       <ul>
         {isAuthenticated() && (
-          <li>
-            <a href="/parcels">Parcels</a>
-          </li>
+          <>
+            <li>
+              <a href="/parcels">
+                <TagOutlined style={{ marginRight: "4px" }} />
+                Parcels
+              </a>
+            </li>
+            <li>
+              <a href="/status">
+                <QuestionCircleOutlined style={{ marginRight: "4px" }} />
+                Status
+              </a>
+            </li>
+          </>
         )}
 
         {!isAuthenticated() && (
           <>
             <li>
-              <a href="/login">Login</a>
+              <a href="/login">
+                <LoginOutlined style={{ marginRight: "4px" }} />
+                Login
+              </a>
             </li>
             <li>
-              <a href="/register">Register</a>
+              <a href="/register">
+                <UserOutlined style={{ marginRight: "4px" }} />
+                Register
+              </a>
             </li>
           </>
         )}
@@ -39,6 +63,7 @@ const Navbar = () => {
                 })
               }
             >
+              <LogoutOutlined style={{ marginRight: "4px" }} />
               Logout
             </button>
           </li>
