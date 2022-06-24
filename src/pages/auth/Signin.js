@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import {
-  authenticate,
-  isAuthenticated,
-} from "../../components/common/authPermission";
+import { authenticate } from "../../components/common/authPermission";
 import { signin } from "../../utils/others/authApi";
 import { message } from "antd";
+import { Link } from "react-router-dom";
 
 const Signin = () => {
   const [values, setValues] = useState({
@@ -68,6 +66,10 @@ const Signin = () => {
           Signin
         </button>
       </form>
+      <br />
+      <Link style={{ marginLeft: "8%", fontWeight: "bold" }} to="/register">
+        Doesn't have account? Register now!
+      </Link>
     </div>
   );
 

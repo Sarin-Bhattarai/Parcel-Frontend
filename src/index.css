@@ -68,16 +68,20 @@ gap: 20px;
 .status-container{
     display: flex;
     justify-content: center;
-    margin-top: 10%;
+    margin-top: 7%;
+
 }
 
 .status-container input{
     width: 50%;
+    height: 40px;
+    margin-right: 7px;
 }
 
 
 .status-container button{
     width: 10%;
+    height: 40px;
 }
 
 /* signup */
@@ -86,7 +90,7 @@ gap: 20px;
 .signup-container{
     border-radius: 5px;
     padding: 20px;
-    margin-top: 5%;
+    margin-top: 1%;
     /* justify-content: center; */
     margin-left: 35%;
 }
@@ -138,20 +142,3 @@ select {
     opacity: 0.8;
 }
 
-/* search css */
-.search-container{
-    display: flex;
-    justify-content: center;
-    width: 40%;
-    height: 40px;
-    margin-top: 3%;
-    margin-left: 30%;
-    gap:5px
-}
-
-
-.search-button{
-    border-radius: 3px;
-    height: 38px;
-    width: 90px;
-}

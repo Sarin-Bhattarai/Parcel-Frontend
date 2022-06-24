@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import "./index.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PrivateRoute from "./components/private/PrivateRoute";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Parcel from "./pages/Parcel";
@@ -14,17 +15,35 @@ import Footer from "./components/Footer";
 const App = () => {
   return (
     <>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/parcels" exact element={<Parcel />} />
-          <Route path="/parcels/:id" exact element={<SingleParcel />} />
-          <Route path="/status" exact element={<Status />} />
-          <Route path="/login" exact element={<Signin />} />
-          <Route path="/register" exact element={<Signup />} />
-        </Routes>
-      </Router>
+      <div style={{ minHeight: "60vh" }}>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/parcels"
+              exact
+              element={
+                <PrivateRoute>
+                  <Parcel />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/parcels/:id" exact element={<SingleParcel />} />
+            <Route
+              path="/status"
+              exact
+              element={
+                <PrivateRoute>
+                  <Status />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/login" exact element={<Signin />} />
+            <Route path="/register" exact element={<Signup />} />
+          </Routes>
+        </Router>
+      </div>
       <Footer />
     </>
   );

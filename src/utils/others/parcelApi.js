@@ -43,6 +43,7 @@ export const updateParcel = (id, parcel) => {
   });
 };
 
+/*For deleting parcel */
 export const deleteParcel = (id) => {
   return fetch(`${API}/parcels/${id}`, {
     method: "DELETE",
@@ -53,4 +54,9 @@ export const deleteParcel = (id) => {
   }).then((response) => {
     return response.json();
   });
+};
+
+/* for searching products */
+export const list = (key) => {
+  return axios(`${API}/parcels/search/${key.search}`);
 };
