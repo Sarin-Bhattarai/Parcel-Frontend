@@ -1,0 +1,17 @@
+.result-parcel-container{
+        padding: 1rem;
+        box-shadow: 4px 4px 4px 4px gray;
+        width: 30%;
+        display: block;
+        margin-left: 35%;
+        background-color: #060b26;
+        border-radius: 17px;
+        border-color: #45a049 !important;
+        margin-top: 3%;
+}
+
+
+.result-parcel-info{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}

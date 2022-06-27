@@ -95,6 +95,9 @@ const SingleParcel = () => {
           modalVisible: false,
         });
         message.success("Successfully updated parcel");
+        setTimeout(() => {
+          navigate("/parcels");
+        }, 1000);
       })
       .catch((error) => {
         setState({ ...state, updateLoading: false });
@@ -135,6 +138,8 @@ const SingleParcel = () => {
     fetchParcel(id);
   }, [id]);
 
+  console.log(state.parcel);
+
   return (
     <DataFetchingState
       loading={state.loading}
@@ -143,7 +148,23 @@ const SingleParcel = () => {
     >
       <>
         <h1 className="perform-header">Perform your action </h1>
-        <div className="perform-container">
+        <div
+          className="perform-container"
+          style={{
+            boxShadow:
+              state.parcel.status === "pending"
+                ? "4px 4px 4px 4px yellow"
+                : "" || state.parcel.status === "processing"
+                ? "4px 4px 4px 4px orange"
+                : "" || state.parcel.status === "delivering"
+                ? "4px 4px 4px 4px orange"
+                : "" || state.parcel.status === "rejected"
+                ? "4px 4px 4px 4px red"
+                : "" || state.parcel.status === "delivered"
+                ? "4px 4px 4px 4px green"
+                : "",
+          }}
+        >
           <h2 className="data-info">Name : {state?.parcel?.name}</h2>
           <h2 className="data-info">Code : {state?.parcel?.code}</h2>
           <h2 className="data-info">Status : {state?.parcel?.status}</h2>
@@ -207,7 +228,10 @@ const SingleParcel = () => {
                   <label>Status</label>
                   <Select
                     defaultValue="pending"
-                    style={{ width: "100%", height: "28px" }}
+                    style={{
+                      width: "100%",
+                      height: "28px",
+                    }}
                     onChange={(value) => handleChange("status", value)}
                     value={state.parcel.status}
                     name="status"

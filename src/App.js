@@ -30,15 +30,7 @@ const App = () => {
               }
             />
             <Route path="/parcels/:id" exact element={<SingleParcel />} />
-            <Route
-              path="/status"
-              exact
-              element={
-                <PrivateRoute>
-                  <Status />
-                </PrivateRoute>
-              }
-            />
+            <Route path="/status" exact element={<Status />} />
             <Route path="/login" exact element={<Signin />} />
             <Route path="/register" exact element={<Signup />} />
           </Routes>

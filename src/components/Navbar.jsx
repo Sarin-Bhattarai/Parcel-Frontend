@@ -19,18 +19,18 @@ const Navbar = () => {
         Your Parcel
       </a>
       <ul>
+        <li>
+          <a href="/status">
+            <QuestionCircleOutlined style={{ marginRight: "4px" }} />
+            Status
+          </a>
+        </li>
         {isAuthenticated() && (
           <>
             <li>
               <a href="/parcels">
                 <TagOutlined style={{ marginRight: "4px" }} />
                 Parcels
-              </a>
-            </li>
-            <li>
-              <a href="/status">
-                <QuestionCircleOutlined style={{ marginRight: "4px" }} />
-                Status
               </a>
             </li>
           </>

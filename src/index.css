@@ -38,19 +38,22 @@ gap: 5px;
     gap:15px;
 }
 
+
 /* singleParcel css */
 
 .perform-container{
     padding: 1rem;
-    box-shadow: 4px 4px 4px 4px gray;
+    /* box-shadow: 4px 4px 4px 4px gray; */
     width: 30%;
     display:block;
-   margin-left: 35%;
-   background-color: #060b26;
-    border-radius: 17px;
+    margin-left: 35%;
+    background-color: #060b26;
+    border-width: 10px;
     border-color: #45a049 !important;
+    border-radius: 17px;
     margin-top: -3%;
 }
+
 
 .data-info{
     color: white;
