@@ -1,25 +1,31 @@
 import React from "react";
-import { Carousel, Progress, Timeline, Steps } from "antd";
-import first from "../utils/assets/real-one.jpg";
-import second from "../utils/assets/second-one.jpg";
+import { Carousel, Col, Row } from "antd";
+import { IoBoatOutline, IoAirplaneOutline } from "react-icons/io5";
+import { TbTruckDelivery } from "react-icons/tb";
+import { FaTruckLoading } from "react-icons/fa";
+import first from "../utils/assets/Cargo-1.jpg";
+import second from "../utils/assets/Cargo-4.jpg";
+import gridone from "../utils/assets/grid-one.jpg";
+import gridtwo from "../utils/assets/grid-two.jpg";
+import gridfour from "../utils/assets/grid-five.jpg";
+import gridfive from "../utils/assets/grid-6.jpg";
 
 const Home = () => {
-  const { Step } = Steps;
   const onChange = (currentSlide) => {
     console.log(currentSlide);
   };
   const contentStyle = {
-    height: "450px",
+    height: "570px",
     color: "#fff",
     background: "#364d79",
   };
   return (
     <div>
-      <Carousel effect="fade" afterChange={onChange}>
+      <Carousel autoplay effect="fade" afterChange={onChange}>
         <div>
           <h2 style={contentStyle}>
             <img
-              style={{ height: "450px", width: "1600px" }}
+              style={{ height: "610px", width: "1600px" }}
               src={first}
               alt="firstimage"
             />
@@ -28,7 +34,7 @@ const Home = () => {
         <div>
           <h2 style={contentStyle}>
             <img
-              style={{ height: "450px", width: "1600px" }}
+              style={{ height: "610px", width: "1600px" }}
               src={second}
               alt="secondimage"
             />
@@ -36,63 +42,99 @@ const Home = () => {
         </div>
       </Carousel>
       <br />
-      <br />
-      <div className="home-container">
-        <br />
-        <Timeline style={{ float: "left", marginLeft: "5px" }}>
-          <Timeline.Item>
-            Parcel delivered at Baneshwor, 2022-06-19
-          </Timeline.Item>
-          <Timeline.Item>
-            Solve initial network problems 2022-06-15
-          </Timeline.Item>
-          <Timeline.Item>Technical testing 2022-05-05</Timeline.Item>
-          <Timeline.Item>Parcel rejected, 2022-05-01</Timeline.Item>
-        </Timeline>
-      </div>
-      <div className="progress-container">
-        <h2 style={{ textAlign: "center", marginTop: "-3%" }}>
-          Progress of Parcels
-        </h2>
-        <Progress
-          strokeColor={{
-            "0%": "#108ee9",
-            "75%": "#87d068",
-          }}
-          type="circle"
-          percent={75}
-          width="155px"
-          format={(percent) => `${percent}% Parcels delivered`}
-        />
-        <Progress
-          type="circle"
-          status="normal"
-          percent={60}
-          width="155px"
-          format={(percent) => `${percent}% Parcels pending`}
-        />
-        <Progress
-          type="circle"
-          status="exception"
-          percent={55}
-          width="155px"
-          format={(percent) => `${percent}% Parcels rejected`}
-        />
+      <h2 className="home-service">Services We Offer</h2>
+      <div className="responsive-services">
+        <Row style={{ marginLeft: "1%" }}>
+          <Col span={6}>
+            <img src={gridone} alt="one" />
+          </Col>
+          <Col span={6}>
+            <span className="home-span">
+              <IoBoatOutline className="icon-boat" />
+            </span>
+            <br />
+            <br />
+            <h2 className="ocean-header">Ocean Freight</h2>
+            <p className="ocean-desc">
+              We have more than twenty
+              <br /> years of experience. We’ve
+              <br /> become expert in freight <br /> transportation by ship and{" "}
+              <br /> all its related. In comparison <br /> to other
+              transportation system <br /> it is very cheap and fast.
+            </p>
+          </Col>
+          <Col span={6}>
+            <img src={gridtwo} alt="two" />
+          </Col>
+          <Col span={6}>
+            <span className="home-span">
+              <IoAirplaneOutline className="icon-boat" />
+            </span>
+            <h2 className="ocean-header">Air Freight</h2>
+            <p className="ocean-desc">
+              We have more than twenty
+              <br /> years of experience. We’ve
+              <br /> become expert in freight <br /> transportation by air and{" "}
+              all <br /> its related. In comparison to <br /> other
+              transportation system it <br /> is quite expensive but fast and
+              <br />
+              realiable.
+            </p>
+          </Col>
+        </Row>
       </div>
       <br />
+      <div className="responsive-services">
+        <Row style={{ marginLeft: "1%" }}>
+          <Col span={6}>
+            <span className="home-span">
+              <TbTruckDelivery className="icon-boat" />
+            </span>
+            <br />
+            <br />
+            <h2 className="ocean-header">Rail/Road Freight</h2>
+            <p className="ocean-desc">
+              We have more than twenty
+              <br /> years of experience. We’ve
+              <br /> become expert in freight <br /> transportation by ship and
+              <br /> all its related. In comparison <br /> to other
+              transportation system <br /> it is very cheap and fast.
+            </p>
+          </Col>
+          <Col span={6}>
+            {" "}
+            <img src={gridfour} alt="two" />
+          </Col>
+
+          <Col span={6}>
+            <span className="home-span">
+              <FaTruckLoading className="icon-boat" />
+            </span>
+            <h2 className="ocean-header">Other Services</h2>
+            <p className="ocean-desc">
+              We have more than twenty
+              <br /> years of experience. We’ve
+              <br /> become expert in freight <br /> transportation by air and
+              all <br /> its related. In comparison to <br /> other
+              transportation system it <br /> is quite expensive but fast and
+              <br />
+              realiable.
+            </p>
+          </Col>
+
+          <Col span={6}>
+            <img src={gridfive} alt="two" />
+          </Col>
+        </Row>
+      </div>
       <br />
-      <h2 style={{ float: "left", marginLeft: "1%" }}>
-        Progress step of Parcel
-      </h2>
-      <Steps current={1}>
-        <Step title="Packaging" description="Ready for delivering." />
-        <Step
-          title="In Progress"
-          subTitle="Left 01:10:08"
-          description="Delivering to Customer location."
-        />
-        <Step title="Waiting" description="Parcels to be delivered." />
-      </Steps>
+      <br />
+      <div className="responsive-services">
+        <Row>
+          <Col span={12}>left</Col>
+          <Col span={12}>right</Col>
+        </Row>
+      </div>
     </div>
   );
 };

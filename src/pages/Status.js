@@ -91,7 +91,6 @@ const Status = () => {
   };
 
   const searchedParcels = (results = []) => {
-    console.log(results);
     return (
       <div>
         <h2>{searchMessage(state.searched, state.results)}</h2>
@@ -101,21 +100,58 @@ const Status = () => {
           onClickTryAgain={loadParcels}
         >
           {results.map((p, i) => (
-            <div className="result-parcel-container" key={i}>
-              <h3 className="result-parcel-info">Code: {p.code}</h3>
-              <h3 className="result-parcel-info">Name: {p.name}</h3>
-              <h3 className="result-parcel-info">Status: {p.status}</h3>
-              <h3 className="result-parcel-info">
-                Description: {p.description}
+            <div key={i}>
+              <h3 className="result-parcel-info-code">
+                <strong>Code:</strong>
+                {p.code}
               </h3>
-              <hr />
-              <p className="result-parcel-info">
-                Added on: {moment(p.createdAt).format("YYYY/MM/DD , h:mm a")}
-              </p>
-              <p className="result-parcel-info">
-                Updated at : {p.status},{" "}
-                {moment(p.updatedAt).format("YYYY/MM/DD , h:mm a")}
-              </p>
+              <h3 className="result-parcel-info-code">
+                <strong>Name:</strong> {p.name}
+              </h3>
+              <h3 className="result-parcel-info-code">
+                <strong>Origin Service Area:</strong> Kathmandu
+              </h3>
+              <h3 className="result-parcel-info-code">
+                <strong>Description:</strong> {p.description}
+              </h3>
+              <table className="status-table-container">
+                <thead>
+                  <tr>
+                    <th>Event</th>
+                    <th>Location</th>
+                    <th>Date/Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Status: {p.status}</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+
+                  <tr>
+                    <td>Added on</td>
+                    <td></td>
+                    <td>{moment(p.createdAt).format("YYYY/MM/DD , h:mm a")}</td>
+                  </tr>
+
+                  {p?.logs?.map?.((t, i) => (
+                    <tr key={i}>
+                      <td>Updated at: {t.status}</td>
+                      <td></td>
+                      <td>
+                        {moment(t.updatedAt).format("YYYY/MM/DD , h:mm a")}
+                      </td>
+                    </tr>
+                  ))}
+
+                  <tr>
+                    <td>Updated at: {p.status}</td>
+                    <td></td>
+                    <td>{moment(p.updatedAt).format("YYYY/MM/DD , h:mm a")}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           ))}
         </DataFetchingState>
@@ -160,16 +196,19 @@ const Status = () => {
         <p>Pan Number: 123456</p>
         <p>Github: github.com/parcel/your-parcel/ </p>
       </Drawer>
-      <form onSubmit={searchSubmit} className="status-container">
-        <Input
-          onChange={(e) => handleChange("search", e.target.value)}
-          type="search"
-          placeholder="Search Parcel"
-          required
-          autoFocus
-        />
-        <Button onClick={searchSubmit}>Search</Button>
-      </form>
+      <div>
+        <h3 className="status-co-header">TRACKING DETAILS</h3>
+        <form onSubmit={searchSubmit} className="status-container">
+          <Input
+            onChange={(e) => handleChange("search", e.target.value)}
+            type="search"
+            placeholder="Search Parcel"
+            required
+            autoFocus
+          />
+          <Button onClick={searchSubmit}>Search</Button>
+        </form>
+      </div>
       <div>{searchedParcels(state.results)}</div>
     </>
   );

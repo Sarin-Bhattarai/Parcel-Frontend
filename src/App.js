@@ -7,9 +7,10 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Parcel from "./pages/Parcel";
 import Status from "./pages/Status";
+import Contact from "./pages/Contact";
 import SingleParcel from "./pages/SingleParcel";
 import Signin from "./pages/auth/Signin";
-import Signup from "./pages/auth/Signup";
+// import Signup from "./pages/auth/Signup";
 import Footer from "./components/Footer";
 
 const App = () => {
@@ -31,8 +32,9 @@ const App = () => {
             />
             <Route path="/parcels/:id" exact element={<SingleParcel />} />
             <Route path="/status" exact element={<Status />} />
+            <Route path="/contact" exact element={<Contact />} />
             <Route path="/login" exact element={<Signin />} />
-            <Route path="/register" exact element={<Signup />} />
+            {/* <Route path="/register" exact element={<Signup />} /> */}
           </Routes>
         </Router>
       </div>

@@ -5,10 +5,10 @@ const Footer = () => {
   return (
     <footer className="footer-distributed ">
       <div className="footer-left">
-        <h3>Your Parcel</h3>
+        <h3>Direct Way Cargo</h3>
         <br />
         <p className="footer-company-name">
-          Copyright © 2022 <strong>Your Parcel</strong> All rights reserved
+          Copyright © 2022 <strong>Direct Way Cargo</strong> All rights reserved
         </p>
       </div>
 
@@ -37,8 +37,8 @@ const Footer = () => {
       <div className="footer-right">
         <p className="footer-company-about">
           <span>About the company</span>
-          <strong>Your Parcel</strong> is an parcel management company started
-          in 2022 which couriers the parcels to customers globally.
+          <strong>Direct Way Cargo</strong> is an parcel management company
+          started in 2022 which couriers the parcels to customers globally.
         </p>
       </div>
     </footer>

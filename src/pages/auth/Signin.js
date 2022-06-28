@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { authenticate } from "../../components/common/authPermission";
 import { signin } from "../../utils/others/authApi";
 import { message } from "antd";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const Signin = () => {
   const [values, setValues] = useState({
@@ -33,7 +33,7 @@ const Signin = () => {
       })
       .catch((error) => {
         setValues({ ...values, error: error, loading: false });
-        message.error(error?.message || "Error while logging in");
+        message.error("email/password doesn't match");
         console.log(error);
       });
   };
@@ -67,9 +67,9 @@ const Signin = () => {
         </button>
       </form>
       <br />
-      <Link style={{ marginLeft: "8%", fontWeight: "bold" }} to="/register">
+      {/* <Link style={{ marginLeft: "8%", fontWeight: "bold" }} to="/register">
         Doesn't have account? Register now!
-      </Link>
+      </Link> */}
     </div>
   );
 

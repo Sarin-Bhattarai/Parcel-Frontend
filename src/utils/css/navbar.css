@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
 *{
     box-sizing: border-box;
 }
@@ -53,5 +55,29 @@ body{
     border: none;
 }
 
+.main-header-navbar{
+    display: flex;
+    justify-content: center;
+    background-color: #060b26;
+}
 
 
+.phone-header-nav{
+    color:white;
+    background-color: orange;
+    height:33px;
+    border-radius: 1px;
+    font-size: larger;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    
+}
+
+.mail-header-nav {
+    color: white;
+    background-color:royalblue;
+    height: 33px;
+    border-radius: 1px;
+    font-size: larger;
+    font-family: 'Roboto', sans-serif;
+}
