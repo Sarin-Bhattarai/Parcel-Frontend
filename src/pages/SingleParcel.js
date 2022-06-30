@@ -79,6 +79,7 @@ const SingleParcel = () => {
       code: state.parcel.code,
       name: state.parcel.name,
       status: state.parcel.status,
+      location: state.parcel.location,
       description: state.parcel.description,
       remarks: state.parcel.remarks,
     };
@@ -89,6 +90,7 @@ const SingleParcel = () => {
           code: parcel.code,
           name: parcel.name,
           status: parcel.status,
+          location: parcel.location,
           description: parcel.description,
           remarks: parcel.remarks,
           updateLoading: false,
@@ -101,7 +103,10 @@ const SingleParcel = () => {
       })
       .catch((error) => {
         setState({ ...state, updateLoading: false });
-        message.error(error?.message || "Error updating parcel");
+        message.error("Error updating parcel");
+        setTimeout(() => {
+          navigate("/parcels");
+        }, 2000);
       });
   };
 
@@ -168,6 +173,7 @@ const SingleParcel = () => {
           <h2 className="data-info">Name : {state?.parcel?.name}</h2>
           <h2 className="data-info">Code : {state?.parcel?.code}</h2>
           <h2 className="data-info">Status : {state?.parcel?.status}</h2>
+          <h2 className="data-info">Location : {state?.parcel?.location}</h2>
           <h2 className="data-info">
             Description : {state?.parcel?.description}
           </h2>
@@ -244,6 +250,17 @@ const SingleParcel = () => {
                   </Select>
                   <br />
                   <br />
+
+                  <label>Location</label>
+                  <Input
+                    type="text"
+                    placeholder="location"
+                    onChange={(e) => handleChange("location", e.target.value)}
+                    value={state.parcel.location}
+                    name="location"
+                  />
+                  <br />
+                  <br />
                   <label>Description</label>
                   <Input
                     type="text"
@@ -297,6 +314,8 @@ const SingleParcel = () => {
             </Space>
           </div>
         </div>
+        <br />
+        <br />
       </>
     </DataFetchingState>
   );

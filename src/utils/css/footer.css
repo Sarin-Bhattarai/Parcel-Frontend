@@ -39,8 +39,9 @@ header span {
     width: 100%;
     text-align: left;
     font: bold 16px sans-serif;
-    padding: 50px 50px 60px 50px;
-    margin-top: 5%;
+    padding: 70px 50px 60px 60px;
+    height: 39.9vh;
+    /* margin-top: 5%; */
 }
 
 .footer-distributed .footer-left,

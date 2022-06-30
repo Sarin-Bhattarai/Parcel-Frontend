@@ -17,7 +17,13 @@ body{
     align-items: center;
     gap: 2rem;
     padding: 0 1rem;
-    height: 10vh;
+    height: 8vh;
+}
+
+@media only screen and (max-width: 768px) {
+     .nav {
+        display: flexbox;
+    }
 }
 
 .site-title {
@@ -65,19 +71,20 @@ body{
 .phone-header-nav{
     color:white;
     background-color: orange;
-    height:33px;
+    height:35px;
     border-radius: 1px;
     font-size: larger;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
-    
+    padding: 6px;
 }
 
 .mail-header-nav {
     color: white;
     background-color:royalblue;
-    height: 33px;
+    height: 35px;
     border-radius: 1px;
     font-size: larger;
     font-family: 'Roboto', sans-serif;
+    padding: 6px;
 }

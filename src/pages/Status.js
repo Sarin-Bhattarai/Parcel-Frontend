@@ -138,7 +138,7 @@ const Status = () => {
                   {p?.logs?.map?.((t, i) => (
                     <tr key={i}>
                       <td>Updated at: {t.status}</td>
-                      <td></td>
+                      <td>{t.location}</td>
                       <td>
                         {moment(t.updatedAt).format("YYYY/MM/DD , h:mm a")}
                       </td>
@@ -147,7 +147,7 @@ const Status = () => {
 
                   <tr>
                     <td>Updated at: {p.status}</td>
-                    <td></td>
+                    <td>{p.location}</td>
                     <td>{moment(p.updatedAt).format("YYYY/MM/DD , h:mm a")}</td>
                   </tr>
                 </tbody>
@@ -171,19 +171,19 @@ const Status = () => {
         </Button>
       </Space>
       <Drawer
-        title={"Your Parcel Details"}
+        title={"Details"}
         placement="right"
         size={size}
         onClose={onClose}
         visible={visible}
       >
         <h3>Info</h3>
-        <p>Name: Your Parcel</p>
-        <p>Established: 2022-01-20</p>
-        <p>City: Kathmandu</p>
-        <p>Account: apptech@gmail.com</p>
+        <p>Name: Direct Way Cargo</p>
+        <p>Established: 2000-01-20</p>
+        <p>City: Madhyapur Thimi Bhaktapur</p>
+        <p>Account: info@directwaycargonepal.com.np</p>
 
-        <h3>Services</h3>
+        <h3>Other Services</h3>
         <ul style={{ marginLeft: "4%" }}>
           <li>Packaging Services</li>
           <li>Door-to-door Shipping</li>
@@ -191,10 +191,9 @@ const Status = () => {
         </ul>
 
         <h3>Contacts</h3>
-        <p>Email: apptech@gmail</p>
+        <p>Email: info@directwaycargonepal.com.np</p>
         <p>Phone Number: 980000000</p>
         <p>Pan Number: 123456</p>
-        <p>Github: github.com/parcel/your-parcel/ </p>
       </Drawer>
       <div>
         <h3 className="status-co-header">TRACKING DETAILS</h3>
@@ -210,6 +209,8 @@ const Status = () => {
         </form>
       </div>
       <div>{searchedParcels(state.results)}</div>
+      <br />
+      <br />
     </>
   );
 };

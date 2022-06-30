@@ -5,7 +5,19 @@ const Footer = () => {
   return (
     <footer className="footer-distributed ">
       <div className="footer-left">
-        <h3>Direct Way Cargo</h3>
+        <h3>Direct Way Cargo ||</h3>
+        <br />
+        <h4 style={{ color: "white", fontSize: "19px" }}>
+          Design and Developed by:
+        </h4>
+        <a
+          style={{ marginLeft: "8%" }}
+          target="next"
+          href="https://mail.google.com/mail/u/0/#inbox"
+        >
+          App Technologies
+        </a>
+        <br />
         <br />
         <p className="footer-company-name">
           Copyright © 2022 <strong>Direct Way Cargo</strong> All rights reserved
@@ -16,21 +28,24 @@ const Footer = () => {
         <div>
           <i className="fa fa-map-marker"></i>
           <p>
-            <span>Baneshwor</span>
-            Kathmandu
+            <span style={{ fontSize: "25px" }}>Madhyapur Thimi</span>
+            <p style={{ marginLeft: "25%" }}>Bhaktapur</p>
+            <br />
+            <br />
+            <p style={{ marginLeft: "30%" }}>Nepal</p>
           </p>
         </div>
 
         <div>
           <i className="fa fa-phone"></i>
-          <p>+977 9000000000</p>
+          <p style={{ marginLeft: "4%" }}>+977 9000000000</p>
         </div>
         <div>
           <i className="fa fa-envelope"></i>
           <p>
-            <a href="https://mail.google.com/" className="text-white">
+            {/* <a href="https://mail.google.com/" className="text-white">
               parcel@gmail.com
-            </a>
+            </a> */}
           </p>
         </div>
       </div>

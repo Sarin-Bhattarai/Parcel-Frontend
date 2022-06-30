@@ -5,6 +5,7 @@ import "../index.css";
 import DataFetchingState from "../components/common/DataFetchingState";
 import { PlusOutlined } from "@ant-design/icons";
 import { Modal, Space, Button, Input, message } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const Parcel = () => {
   const [state, setState] = useState({
@@ -14,6 +15,7 @@ const Parcel = () => {
     newParcel: "",
     modalVisible: false,
   });
+  const navigate = useNavigate();
 
   //create parcel process
   const handleChange = (name, value) => {
@@ -29,6 +31,7 @@ const Parcel = () => {
     const addParcel = {
       code: state.newParcel.code,
       name: state.newParcel.name,
+      location: state.newParcel.location,
       description: state.newParcel.description,
     };
 
@@ -45,8 +48,16 @@ const Parcel = () => {
         message.success("Parcel created");
       })
       .catch((error) => {
-        setState({ ...state, error: error, loading: false });
-        message.error(error?.message || "Error creating parcel");
+        setState({
+          ...state,
+          error: error,
+          loading: false,
+          modalVisible: false,
+        });
+        message.error("Error creating parcel");
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
         console.log(error);
       });
   };
@@ -107,6 +118,7 @@ const Parcel = () => {
             setState({
               ...state,
               modalVisible: false,
+              newParcel: "",
             });
           }}
         >
@@ -133,10 +145,21 @@ const Parcel = () => {
             <br />
             <Input
               type="text"
+              placeholder="location"
+              onChange={(e) => handleChange("location", e.target.value)}
+              value={state.newParcel.location}
+              name="location"
+              required
+            />
+            <br />
+            <br />
+            <Input
+              type="text"
               placeholder="description"
               onChange={(e) => handleChange("description", e.target.value)}
               value={state.newParcel.description}
               name="description"
+              required
             />
           </form>
         </Modal>
@@ -165,6 +188,7 @@ const Parcel = () => {
           </>
         </DataFetchingState>
       </div>
+      <br />
     </div>
   );
 };

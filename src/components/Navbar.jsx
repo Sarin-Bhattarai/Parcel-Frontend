@@ -18,82 +18,84 @@ import {
 const Navbar = () => {
   let navigate = useNavigate();
   return (
-    <div>
-      <div className="main-header-navbar">
-        <span className="phone-header-nav">
-          <PhoneOutlined /> +977-9801035353 / 9801035354
-        </span>
-        <a
-          href="https://mail.google.com/mail/u/0/#inbox"
-          className="mail-header-nav"
-          target="next"
-        >
-          <MailOutlined /> info@apexcargonepal.com.np
-        </a>
-      </div>
-      <nav className="nav">
-        <a href="/">
-          <img className="site-title" src={Logo} alt="Logo" />
-        </a>
-        <ul>
-          <li>
-            <a href="/status">
-              <QuestionCircleOutlined style={{ marginRight: "4px" }} />
-              Status
-            </a>
-          </li>
-          <li>
-            <a href="/contact">
-              <ContactsOutlined style={{ marginRight: "4px" }} />
-              Contact
-            </a>
-          </li>
-          {isAuthenticated() && (
-            <>
-              <li>
-                <a href="/parcels">
-                  <TagOutlined style={{ marginRight: "4px" }} />
-                  Parcels
-                </a>
-              </li>
-            </>
-          )}
+    <>
+      <div className="navbar-container">
+        <div className="main-header-navbar">
+          <span className="phone-header-nav">
+            <PhoneOutlined /> +977-9801035353 / 9801035354
+          </span>
+          <a
+            href="https://mail.google.com/mail/u/0/#inbox"
+            className="mail-header-nav"
+            target="next"
+          >
+            <MailOutlined /> info@directwaycargonepal.com.np
+          </a>
+        </div>
+        <nav className="nav">
+          <a href="/">
+            <img className="site-title" src={Logo} alt="Logo" />
+          </a>
+          <ul>
+            <li>
+              <a href="/status">
+                <QuestionCircleOutlined style={{ marginRight: "4px" }} />
+                Status
+              </a>
+            </li>
+            <li>
+              <a href="/contact">
+                <ContactsOutlined style={{ marginRight: "4px" }} />
+                Contact
+              </a>
+            </li>
+            {isAuthenticated() && (
+              <>
+                <li>
+                  <a href="/parcels">
+                    <TagOutlined style={{ marginRight: "4px" }} />
+                    Parcels
+                  </a>
+                </li>
+              </>
+            )}
 
-          {!isAuthenticated() && (
-            <>
-              <li>
-                <a href="/login">
-                  <LoginOutlined style={{ marginRight: "4px" }} />
-                  Login
-                </a>
-              </li>
-              {/* <li>
+            {!isAuthenticated() && (
+              <>
+                <li>
+                  <a href="/login">
+                    <LoginOutlined style={{ marginRight: "4px" }} />
+                    Login
+                  </a>
+                </li>
+                {/* <li>
               <a href="/register">
                 <UserOutlined style={{ marginRight: "4px" }} />
                 Register
               </a>
             </li> */}
-            </>
-          )}
+              </>
+            )}
 
-          {isAuthenticated() && (
-            <li>
-              <button
-                className="logout-button"
-                onClick={() =>
-                  signout(() => {
-                    navigate("/");
-                  })
-                }
-              >
-                <LogoutOutlined style={{ marginRight: "4px" }} />
-                Logout
-              </button>
-            </li>
-          )}
-        </ul>
-      </nav>
-    </div>
+            {isAuthenticated() && (
+              <li>
+                <button
+                  className="logout-button"
+                  onClick={() =>
+                    signout(() => {
+                      navigate("/");
+                    })
+                  }
+                >
+                  <LogoutOutlined style={{ marginRight: "4px" }} />
+                  Logout
+                </button>
+              </li>
+            )}
+          </ul>
+        </nav>
+      </div>
+    </>
   );
 };
 

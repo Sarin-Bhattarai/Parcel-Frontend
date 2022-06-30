@@ -159,7 +159,8 @@ select {
     text-align: center;
     color: orangered;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 28px;
+    text-decoration: underline;
 }
 
 .home-span{
@@ -182,3 +183,95 @@ select {
     font-size: large;
     opacity: 0.8;
 }
+
+.big-header{
+    margin-left: 10%;
+    margin-top: 3%;
+    color: white;
+    font-size: 38px;
+    font-weight: bold;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.row-row-header{
+    color: white;
+    font-size: 17px;
+    margin-left: -15%;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.row-row-header-two{
+    color: white;
+    font-size: 17px;
+    margin-left: 6%;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.row-row-icons{
+    font-size: 50px;
+    color: white;
+}
+
+.row-row-pes{
+    margin-left: -15%;
+    gap: 4px;
+    line-height: 30px;
+    font-size: large;
+    opacity: 0.8;
+    color: white;
+}
+
+
+.row-row-pes-two {
+    margin-left: 4%;
+    line-height: 30px;
+    font-size: large;
+    opacity: 0.8;
+    color: white;
+    text-align: left;
+}
+
+
+.row-row-button{
+margin-top: 5%;
+margin-left: 30%;
+}
+
+@media only screen and (max-width: 768px) {
+    .home-container Row {
+        display: block;
+        margin:0
+    }
+}
+
+/* contact page css */
+.contact-header{
+    margin-left: 5%;
+    margin-top: 3%;
+    font-size: 40px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+}
+
+
+.contact-second-header{
+    margin-left: 5%;
+    font-size: 25px;
+    color: #800000;
+    font-weight: bold;
+}
+.contact-second-header-2 {
+    margin-left: 5%;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+
+.contact-desc{
+    margin-left: 5%;
+    font-size: 18px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
