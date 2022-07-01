@@ -10,14 +10,21 @@ const Contact = () => {
             <h1 className="contact-header">Contact Us</h1>
             <h3 className="contact-second-header">Registered Address</h3>
             <h3 className="contact-second-header-2">Direct Way Cargo Nepal.</h3>
-            <p className="contact-desc">Madhyapur Thimi-3, Bhaktapur</p>
-            <p className="contact-desc">Nepal, 44811</p>
+            <p className="contact-desc">Thamel Marg, Kathmandu</p>
+            <p className="contact-desc">Nepal, 44600</p>
             <br />
-            <h3 className="contact-second-header">Communicating Address</h3>
+            <h3 className="contact-second-header">Through Social Media</h3>
             <h3 className="contact-second-header-2">Direct Way Cargo Nepal.</h3>
-            <p className="contact-desc">Regus Business Centre,</p>
-            <p className="contact-desc">Ground Floor, Trade Tower</p>
-            <p className="contact-desc">Thapathali, Kathmandu</p>
+            <p className="contact-desc">
+              <strong>Facebook:</strong> Directway{" "}
+            </p>
+            <p className="contact-desc">
+              {" "}
+              <strong>Twitter:</strong> Directway{" "}
+            </p>
+            <p className="contact-desc">
+              <strong>Email:</strong> directwy@gmail.com
+            </p>
             <p className="contact-desc">Nepal, 44600</p>
           </Col>
           <Col span={12}>
@@ -28,9 +35,7 @@ const Contact = () => {
                   title="Map"
                   height="600"
                   id="gmap_canvas"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14129.881818858878!2d85.31118692940255!3d27.7027572
-                  24097677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19aad2524c95%3A0x5a40d1f4226de315!2sApex%20Cargo%20Servi
-                  ce%20Nepal%20Pvt.%20Ltd.!5e0!3m2!1sen!2snp!4v1656484679733!5m2!1sen!2snp"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.1039729689837!2d85.3090095150622!3d27.71407588278913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb18fd010cc20b%3A0x24fe730f1c729eec!2sDirect%20Way%20Exporters!5e0!3m2!1sen!2snp!4v1656639572926!5m2!1sen!2snp"
                   frameborder="0"
                   scrolling="no"
                   marginheight="0"

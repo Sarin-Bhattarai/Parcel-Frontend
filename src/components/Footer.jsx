@@ -28,8 +28,8 @@ const Footer = () => {
         <div>
           <i className="fa fa-map-marker"></i>
           <p>
-            <span style={{ fontSize: "25px" }}>Madhyapur Thimi</span>
-            <p style={{ marginLeft: "25%" }}>Bhaktapur</p>
+            <span style={{ fontSize: "25px" }}>Thamel Marg</span>
+            <p style={{ marginLeft: "25%" }}>Kathmandu</p>
             <br />
             <br />
             <p style={{ marginLeft: "30%" }}>Nepal</p>
@@ -38,22 +38,22 @@ const Footer = () => {
 
         <div>
           <i className="fa fa-phone"></i>
-          <p style={{ marginLeft: "4%" }}>+977 9000000000</p>
+          <p style={{ marginLeft: "4%" }}>+977-1-5350337</p>
         </div>
         <div>
           <i className="fa fa-envelope"></i>
-          <p>
-            {/* <a href="https://mail.google.com/" className="text-white">
-              parcel@gmail.com
-            </a> */}
-          </p>
+          <p></p>
         </div>
       </div>
       <div className="footer-right">
         <p className="footer-company-about">
           <span>About the company</span>
-          <strong>Direct Way Cargo</strong> is an parcel management company
-          started in 2022 which couriers the parcels to customers globally.
+          <strong>Direct Way Cargo Nepal</strong> are a dedicated and highly
+          motivated group of people who have over 18 years of in-depth knowledge
+          and experience in cargo services the around the world. As such, we
+          have been playing an important role in attaining client’s
+          organizational goals by meeting their diverse needs and delivering
+          solutions that best meet their distribution needs at reasonable rates.
         </p>
       </div>
     </footer>

@@ -22,14 +22,14 @@ const Navbar = () => {
       <div className="navbar-container">
         <div className="main-header-navbar">
           <span className="phone-header-nav">
-            <PhoneOutlined /> +977-9801035353 / 9801035354
+            <PhoneOutlined /> +977-1-5350337 / +977-1-5316559
           </span>
           <a
-            href="https://mail.google.com/mail/u/0/#inbox"
+            href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJNsLZhnwRBhfbkRzZXPfcvhTRxLqZjQvZQnlvkBHFgLGtRZrWVxDcLrdxSmTxnvJBQfDHg"
             className="mail-header-nav"
             target="next"
           >
-            <MailOutlined /> info@directwaycargonepal.com.np
+            <MailOutlined /> directwy@gmail.com
           </a>
         </div>
         <nav className="nav">

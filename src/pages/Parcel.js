@@ -31,7 +31,8 @@ const Parcel = () => {
     const addParcel = {
       code: state.newParcel.code,
       name: state.newParcel.name,
-      location: state.newParcel.location,
+      origin: state.newParcel.origin,
+      destination: state.newParcel.destination,
       description: state.newParcel.description,
     };
 
@@ -145,10 +146,21 @@ const Parcel = () => {
             <br />
             <Input
               type="text"
-              placeholder="location"
-              onChange={(e) => handleChange("location", e.target.value)}
-              value={state.newParcel.location}
-              name="location"
+              placeholder="origin"
+              onChange={(e) => handleChange("origin", e.target.value)}
+              value={state.newParcel.origin}
+              name="origin"
+              required
+            />
+            <br />
+            <br />
+
+            <Input
+              type="text"
+              placeholder="destination"
+              onChange={(e) => handleChange("destination", e.target.value)}
+              value={state.newParcel.destination}
+              name="destination"
               required
             />
             <br />

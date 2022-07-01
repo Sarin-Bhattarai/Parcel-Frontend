@@ -79,7 +79,8 @@ const SingleParcel = () => {
       code: state.parcel.code,
       name: state.parcel.name,
       status: state.parcel.status,
-      location: state.parcel.location,
+      origin: state.parcel.origin,
+      destination: state.parcel.destination,
       description: state.parcel.description,
       remarks: state.parcel.remarks,
     };
@@ -90,7 +91,8 @@ const SingleParcel = () => {
           code: parcel.code,
           name: parcel.name,
           status: parcel.status,
-          location: parcel.location,
+          origin: parcel.origin,
+          destination: parcel.destination,
           description: parcel.description,
           remarks: parcel.remarks,
           updateLoading: false,
@@ -173,7 +175,10 @@ const SingleParcel = () => {
           <h2 className="data-info">Name : {state?.parcel?.name}</h2>
           <h2 className="data-info">Code : {state?.parcel?.code}</h2>
           <h2 className="data-info">Status : {state?.parcel?.status}</h2>
-          <h2 className="data-info">Location : {state?.parcel?.location}</h2>
+          <h2 className="data-info">Origin : {state?.parcel?.origin}</h2>
+          <h2 className="data-info">
+            Destination : {state?.parcel?.destination}
+          </h2>
           <h2 className="data-info">
             Description : {state?.parcel?.description}
           </h2>
@@ -251,13 +256,26 @@ const SingleParcel = () => {
                   <br />
                   <br />
 
-                  <label>Location</label>
+                  <label>Origin</label>
                   <Input
                     type="text"
-                    placeholder="location"
-                    onChange={(e) => handleChange("location", e.target.value)}
-                    value={state.parcel.location}
-                    name="location"
+                    placeholder="origin"
+                    onChange={(e) => handleChange("origin", e.target.value)}
+                    value={state.parcel.origin}
+                    name="origin"
+                  />
+                  <br />
+                  <br />
+
+                  <label>Destination</label>
+                  <Input
+                    type="text"
+                    placeholder="destination"
+                    onChange={(e) =>
+                      handleChange("destination", e.target.value)
+                    }
+                    value={state.parcel.destination}
+                    name="destination"
                   />
                   <br />
                   <br />

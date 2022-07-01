@@ -108,6 +108,11 @@ const Status = () => {
               <h3 className="result-parcel-info-code">
                 <strong>Name:</strong> {p.name}
               </h3>
+
+              <h3 className="result-parcel-info-code">
+                <strong>Destination:</strong> {p.destination}
+              </h3>
+
               <h3 className="result-parcel-info-code">
                 <strong>Origin Service Area:</strong> Kathmandu
               </h3>
@@ -118,7 +123,7 @@ const Status = () => {
                 <thead>
                   <tr>
                     <th>Event</th>
-                    <th>Location</th>
+                    <th>Origin</th>
                     <th>Date/Time</th>
                   </tr>
                 </thead>
@@ -138,7 +143,7 @@ const Status = () => {
                   {p?.logs?.map?.((t, i) => (
                     <tr key={i}>
                       <td>Updated at: {t.status}</td>
-                      <td>{t.location}</td>
+                      <td>{t.origin}</td>
                       <td>
                         {moment(t.updatedAt).format("YYYY/MM/DD , h:mm a")}
                       </td>
@@ -147,7 +152,7 @@ const Status = () => {
 
                   <tr>
                     <td>Updated at: {p.status}</td>
-                    <td>{p.location}</td>
+                    <td>{p.origin}</td>
                     <td>{moment(p.updatedAt).format("YYYY/MM/DD , h:mm a")}</td>
                   </tr>
                 </tbody>
@@ -178,10 +183,15 @@ const Status = () => {
         visible={visible}
       >
         <h3>Info</h3>
-        <p>Name: Direct Way Cargo</p>
-        <p>Established: 2000-01-20</p>
-        <p>City: Madhyapur Thimi Bhaktapur</p>
-        <p>Account: info@directwaycargonepal.com.np</p>
+        <p>Name: Direct Way Cargo, Nepal</p>
+        <p>Opening Hours</p>
+        <ul style={{ marginLeft: "5%" }}>
+          <li>9am to 8pm Mon-Fri</li>
+          <li>1pm-6pm Sat</li>
+          <li>9am-8pm Sun</li>
+        </ul>
+        <p>City: Thamel Marg, Kathmandu</p>
+        <p>Account: directwy@gmail.com</p>
 
         <h3>Other Services</h3>
         <ul style={{ marginLeft: "4%" }}>
@@ -191,9 +201,9 @@ const Status = () => {
         </ul>
 
         <h3>Contacts</h3>
-        <p>Email: info@directwaycargonepal.com.np</p>
-        <p>Phone Number: 980000000</p>
-        <p>Pan Number: 123456</p>
+        <p>Email: directwy@gmail.com</p>
+        <p>Phone Number: +977-1-5350337 / +977-1-5316559</p>
+        <p>Postal code: 44600</p>
       </Drawer>
       <div>
         <h3 className="status-co-header">TRACKING DETAILS</h3>
