@@ -13,7 +13,7 @@ const Footer = () => {
         <a
           style={{ marginLeft: "8%" }}
           target="next"
-          href="https://mail.google.com/mail/u/0/#inbox"
+          href="https://apptechnologies.co/"
         >
           App Technologies
         </a>

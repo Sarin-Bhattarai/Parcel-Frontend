@@ -40,7 +40,7 @@ const Navbar = () => {
             <li>
               <a href="/status">
                 <QuestionCircleOutlined style={{ marginRight: "4px" }} />
-                Status
+                Tracking
               </a>
             </li>
             <li>

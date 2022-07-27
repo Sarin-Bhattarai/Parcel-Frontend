@@ -1,37 +1,43 @@
-
-.result-parcel-info-code{
-    display: block;
-    margin-top: 2%;
-    margin-left: 15%;
-
+.result-parcel-info-code {
+  display: block;
+  margin-top: 2%;
+  margin-left: 15%;
 }
 
-
-.status-table-container{
-        font-family: Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        width: 80%;
-        margin-top: 3%;
-        margin-left: 13%;
+.status-table-container {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  margin-top: 3%;
+  margin-left: 13%;
 }
-
 
 .status-table-container td,
 th {
-    border: 1px solid #ddd;
-    padding: 8px;
+  border: 1px solid #ddd;
+  padding: 8px;
 }
 
 .status-table-container tr:nth-child(n) {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
-
-
 .status-table-container th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #060b26;
-    color: white;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #060b26;
+  color: white;
+}
+
+@media screen and (max-width: 700px) {
+  .btn-track {
+    width: 20% !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .status-div {
+    margin-top: 10%;
+  }
 }

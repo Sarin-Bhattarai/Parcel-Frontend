@@ -57,7 +57,7 @@ const Home = () => {
 
       <div className="home-container">
         <div className="responsive-services">
-          <Row style={{ marginLeft: "1%" }}>
+          <Row style={{ marginLeft: "1%" }} className="home-row-row">
             <Col span={6}>
               <img src={gridone} alt="one" />
             </Col>

@@ -5,27 +5,33 @@ const Contact = () => {
   return (
     <>
       <div className="responsive-contact">
-        <Row style={{ marginLeft: "5%" }}>
+        <Row className="con-row-con" style={{ marginLeft: "5%" }}>
           <Col span={12}>
-            <h1 className="contact-header">Contact Us</h1>
-            <h3 className="contact-second-header">Registered Address</h3>
-            <h3 className="contact-second-header-2">Direct Way Cargo Nepal.</h3>
-            <p className="contact-desc">Thamel Marg, Kathmandu</p>
-            <p className="contact-desc">Nepal, 44600</p>
-            <br />
-            <h3 className="contact-second-header">Through Social Media</h3>
-            <h3 className="contact-second-header-2">Direct Way Cargo Nepal.</h3>
-            <p className="contact-desc">
-              <strong>Facebook:</strong> Directway{" "}
-            </p>
-            <p className="contact-desc">
-              {" "}
-              <strong>Twitter:</strong> Directway{" "}
-            </p>
-            <p className="contact-desc">
-              <strong>Email:</strong> directwy@gmail.com
-            </p>
-            <p className="contact-desc">Nepal, 44600</p>
+            <div className="wrapper-container">
+              <h1 className="contact-header">Contact Us</h1>
+              <h3 className="contact-second-header">Registered Address</h3>
+              <h3 className="contact-second-header-2">
+                Direct Way Cargo Nepal.
+              </h3>
+              <p className="contact-desc">Thamel Marg, Kathmandu</p>
+              <p className="contact-desc">Nepal, 44600</p>
+              <br />
+              <h3 className="contact-second-header">Through Social Media</h3>
+              <h3 className="contact-second-header-2">
+                Direct Way Cargo Nepal.
+              </h3>
+              <p className="contact-desc">
+                <strong>Facebook:</strong> Directway{" "}
+              </p>
+              <p className="contact-desc">
+                {" "}
+                <strong>Twitter:</strong> Directway{" "}
+              </p>
+              <p className="contact-desc">
+                <strong>Email:</strong> directwy@gmail.com
+              </p>
+              <p className="contact-desc">Nepal, 44600</p>
+            </div>
           </Col>
           <Col span={12}>
             <div className="mapouter">

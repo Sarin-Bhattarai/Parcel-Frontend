@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Button, Input, Drawer, Space } from "antd";
+import { Button, Input } from "antd";
 import { getAllParcels, list } from "../utils/others/parcelApi";
 import { useState } from "react";
 import DataFetchingState from "../components/common/DataFetchingState";
@@ -16,19 +16,6 @@ const Status = () => {
     searched: false,
     error: null,
   });
-
-  /* drawrer */
-  const [visible, setVisible] = useState(false);
-  const [size, setSize] = useState();
-
-  const showDefaultDrawer = () => {
-    setSize("default");
-    setVisible(true);
-  };
-
-  const onClose = () => {
-    setVisible(false);
-  };
 
   const loadParcels = () => {
     setState({ ...state, loading: true });
@@ -166,46 +153,7 @@ const Status = () => {
 
   return (
     <>
-      <Space>
-        <Button
-          type="secondary"
-          style={{ position: "absolute", right: "20px" }}
-          onClick={showDefaultDrawer}
-        >
-          Details of the Company
-        </Button>
-      </Space>
-      <Drawer
-        title={"Details"}
-        placement="right"
-        size={size}
-        onClose={onClose}
-        visible={visible}
-      >
-        <h3>Info</h3>
-        <p>Name: Direct Way Cargo, Nepal</p>
-        <p>Opening Hours</p>
-        <ul style={{ marginLeft: "5%" }}>
-          <li>9am to 8pm Mon-Fri</li>
-          <li>1pm-6pm Sat</li>
-          <li>9am-8pm Sun</li>
-        </ul>
-        <p>City: Thamel Marg, Kathmandu</p>
-        <p>Account: directwy@gmail.com</p>
-
-        <h3>Other Services</h3>
-        <ul style={{ marginLeft: "4%" }}>
-          <li>Packaging Services</li>
-          <li>Door-to-door Shipping</li>
-          <li>Tracking Services</li>
-        </ul>
-
-        <h3>Contacts</h3>
-        <p>Email: directwy@gmail.com</p>
-        <p>Phone Number: +977-1-5350337 / +977-1-5316559</p>
-        <p>Postal code: 44600</p>
-      </Drawer>
-      <div>
+      <div className="status-div">
         <h3 className="status-co-header">TRACKING DETAILS</h3>
         <form onSubmit={searchSubmit} className="status-container">
           <Input
@@ -215,7 +163,9 @@ const Status = () => {
             required
             autoFocus
           />
-          <Button onClick={searchSubmit}>Search</Button>
+          <Button className="btn-track" onClick={searchSubmit}>
+            Search
+          </Button>
         </form>
       </div>
       <div>{searchedParcels(state.results)}</div>

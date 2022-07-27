@@ -163,10 +163,8 @@ const SingleParcel = () => {
                 ? "4px 4px 4px 4px yellow"
                 : "" || state.parcel.status === "processing"
                 ? "4px 4px 4px 4px orange"
-                : "" || state.parcel.status === "delivering"
+                : "" || state.parcel.status === "departed"
                 ? "4px 4px 4px 4px orange"
-                : "" || state.parcel.status === "rejected"
-                ? "4px 4px 4px 4px red"
                 : "" || state.parcel.status === "delivered"
                 ? "4px 4px 4px 4px green"
                 : "",
@@ -249,8 +247,7 @@ const SingleParcel = () => {
                   >
                     <Option value="pending">pending</Option>
                     <Option value="processing">processing</Option>
-                    <Option value="delivering">delivering</Option>
-                    <Option value="rejected">rejected</Option>
+                    <Option value="departed">departed</Option>
                     <Option value="delivered">delivered</Option>
                   </Select>
                   <br />

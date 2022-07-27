@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const signup = (user) => {
   return axios({
-    url: `${API}/auth/register`,
+    url: `${API}/api/auth/register`,
     data: user,
     method: "POST",
   });
@@ -11,7 +11,7 @@ export const signup = (user) => {
 
 export const signin = (user) => {
   return axios({
-    url: `${API}/auth/login`,
+    url: `${API}/api/auth/login`,
     data: user,
     method: "POST",
   });
