@@ -1,12 +1,7 @@
 import React from "react";
-import { Carousel, Col, Row, Button } from "antd";
-import {
-  IoBoatOutline,
-  IoAirplaneOutline,
-  IoReceiptOutline,
-} from "react-icons/io5";
-import { TbTruckDelivery, TbWorldUpload } from "react-icons/tb";
-import { FaTruckLoading } from "react-icons/fa";
+// import { Col, Row, Button } from "antd";
+import { IoReceiptOutline } from "react-icons/io5";
+import { TbWorldUpload } from "react-icons/tb";
 import first from "../utils/assets/Cargo-1.jpg";
 import second from "../utils/assets/Cargo-4.jpg";
 import gridone from "../utils/assets/grid-one.jpg";
@@ -14,37 +9,21 @@ import gridtwo from "../utils/assets/grid-two.jpg";
 import gridfour from "../utils/assets/grid-five.jpg";
 import gridfive from "../utils/assets/grid-6.jpg";
 import singlegrid from "../utils/assets/singlegrid.jpg";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
+import "../utils/css/home.css";
 
 const Home = () => {
-  //function for slide
-  const onChange = (currentSlide) => {
-    console.log(currentSlide);
-  };
-  const contentStyle = {
-    height: "590px",
-    color: "#fff",
-    background: "#364d79",
-  };
   return (
     <div>
-      <Carousel autoplay effect="fade" afterChange={onChange}>
+      {/* slider part */}
+      <Carousel>
         <div>
-          <h2 style={contentStyle}>
-            <img
-              style={{ height: "615px", width: "1600px" }}
-              src={first}
-              alt="firstimage"
-            />
-          </h2>
+          <img src={first} alt="sliderImage" />
         </div>
+
         <div>
-          <h2 style={contentStyle}>
-            <img
-              style={{ height: "615px", width: "1600px" }}
-              src={second}
-              alt="secondimage"
-            />
-          </h2>
+          <img src={second} alt="sliderImage" />
         </div>
       </Carousel>
       {/* slide part ends here */}
@@ -55,100 +34,205 @@ const Home = () => {
       <br />
       <br />
 
-      <div className="home-container">
-        <div className="responsive-services">
-          <Row style={{ marginLeft: "1%" }} className="home-row-row">
-            <Col span={6}>
-              <img src={gridone} alt="one" />
-            </Col>
-            <Col span={6}>
-              <span className="home-span">
-                <IoBoatOutline className="icon-boat" />
-              </span>
-              <br />
-              <br />
-              <h2 className="ocean-header">Ocean Freight</h2>
-              <p className="ocean-desc">
-                We have more than twenty
-                <br /> years of experience. We’ve
-                <br /> become expert in freight <br /> transportation by ship
-                and <br /> all its related. In comparison <br /> to other
-                transportation system <br /> it is very cheap and fast.
-              </p>
-            </Col>
-            <Col span={6}>
-              <img src={gridtwo} alt="two" />
-            </Col>
-            <Col span={6}>
-              <span className="home-span">
-                <IoAirplaneOutline className="icon-boat" />
-              </span>
-              <h2 className="ocean-header">Air Freight</h2>
-              <p className="ocean-desc">
-                We have more than twenty
-                <br /> years of experience. We’ve
-                <br /> become expert in freight <br /> transportation by air and{" "}
-                all <br /> its related. In comparison to <br /> other
-                transportation system it <br /> is quite expensive but fast and
+      <section className="home-section-grid">
+        <div class="container-grid">
+          <div class="card">
+            <div class="imgBx">
+              <a href="/#">
+                <img src={gridone} alt="first" />
+              </a>
+              <h2
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                Ocean Freight
+              </h2>
+              <p
+                style={{
+                  textAlign: "center",
+                }}
+              >
                 <br />
-                realiable.
+                We have more than twenty years of experience. We’ve become
+                expert in freight transportation by ship and all its related. In
+                comparison to other transportation system it is very cheap and
+                fast.
               </p>
-            </Col>
-          </Row>
-        </div>
-        <br />
-        <div className="responsive-services">
-          <Row style={{ marginLeft: "1%" }}>
-            <Col span={6}>
-              <span className="home-span">
-                <TbTruckDelivery className="icon-boat" />
-              </span>
-              <br />
-              <br />
-              <h2 className="ocean-header">Rail/Road Freight</h2>
-              <p className="ocean-desc">
-                We have more than ten
-                <br /> years of experience. We’ve
-                <br /> become expert in freight <br /> transportation by rail
-                and
-                <br />
-                road and all its related. In
-                <br /> comparison to other
-                <br /> transportation system it
-                <br /> is cheap and fast.
-              </p>
-            </Col>
-            <Col span={6}>
-              {" "}
-              <img src={gridfour} alt="four" />
-            </Col>
+            </div>
+          </div>
 
-            <Col span={6}>
-              <span className="home-span">
-                <FaTruckLoading className="icon-boat" />
-              </span>
-              <h2 className="ocean-header">Other Services</h2>
-              <p className="ocean-desc">
-                We have more than twenty
-                <br /> years of experience. We’ve
-                <br /> become expert in freight <br /> transportation by air and
-                all <br /> its related. In comparison to <br /> other
-                transportation system it <br /> is quite expensive but fast and
+          <div class="card">
+            <div class="imgBx">
+              <a href="/#">
+                <img src={gridtwo} alt="second" />
+              </a>
+              <h2
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                Air Freight
+              </h2>
+              <p
+                style={{
+                  textAlign: "center",
+                }}
+              >
                 <br />
-                realiable.
+                We have more than twenty years of experience. We’ve become
+                expert in freight transportation by air and all its related. In
+                comparison to other transportation system it is quite expensive
+                but fast and realiable.
               </p>
-            </Col>
+            </div>
+          </div>
 
-            <Col span={6}>
-              <img src={gridfive} alt="five" />
-            </Col>
-          </Row>
+          <div class="card">
+            <div class="imgBx">
+              <a href="/#">
+                <img src={gridfour} alt="second" />
+              </a>
+              <h2
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                Rail/Road Freight
+              </h2>
+              <p
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                <br />
+                We have more than ten years of experience. We’ve become expert
+                in freight transportation by rail and road and all its related.
+                In comparison to other transportation system it is cheap and
+                fast.
+              </p>
+            </div>
+          </div>
         </div>
+      </section>
+
+      <section className="home-section-grid">
+        <div class="container-grid">
+          <div class="card">
+            <div class="imgBx">
+              <a href="/#">
+                <img src={gridfive} alt="first" />
+              </a>
+
+              <h2
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                Door-to-Door Shipping
+              </h2>
+              <p
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                <br />
+                We have the facility for our customers to deliver the package
+                door to door via our shipping services. It is one of the best
+                services provided by us. It can include via air or land
+                depending upon situation.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="imgBx">
+              <a href="/#">
+                <img src={gridtwo} alt="second" />
+              </a>
+              <h2
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                Tracking Services
+              </h2>
+              <p
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                <br />
+                We track the every details, time and location of the parcel so
+                that our customer's get adequate information about their orders.
+                It is one of the best service in direct way cargo.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="imgBx">
+              <a href="/#">
+                <img src={gridfive} alt="second" />
+              </a>
+              <h2
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                Other Services
+              </h2>
+              <p
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                <br />
+                We have more than twenty years of experience. We’ve become
+                expert in other transportation and all its related part. In
+                comparison to other transportation system it is quite cheap fast
+                and realiable.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <br />
+      <br />
+      <div class="drop-container">
+        <div class="columns content">
+          <div class="content-container">
+            <h5>Why do we use it?</h5>
+            <p>
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout. The
+              point of using Lorem Ipsum is that it has a more-or-less normal
+              distribution of letters, as opposed to using 'Content here,
+              content here', making it look like readable English. Many desktop
+              publishing packages and web page editors now use Lorem Ipsum as
+              their default model text, and a search for 'lorem ipsum' will
+              uncover many web sites still in their infancy. Various versions
+              have evolved over the years, sometimes by accident, sometimes on
+              purpose (injected humour and the like).
+            </p>
+            <p>
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout. The
+              point of using Lorem Ipsum is that it has a more-or-less normal
+              distribution of letters, as opposed to using 'Content here,
+              content here', making it look like readable English. Many desktop
+              publishing packages and web page editors now use Lorem Ipsum as
+              their default model text, and a search for 'lorem ipsum' will
+              uncover many web sites still in their infancy. Various versions
+              have evolved over the years, sometimes by accident, sometimes on
+              purpose (injected humour and the like).
+            </p>
+          </div>
+        </div>
+        <div class="columns image">&nbsp;</div>
       </div>
-      <br />
-      <br />
-      <div className="responsive-services">
-        <Row>
+      {/* <div className="responsive-services">
+        <Row className="down-row">
           <Col
             style={{
               backgroundColor: "#FF5E14",
@@ -209,7 +293,7 @@ const Home = () => {
             />
           </Col>
         </Row>
-      </div>
+      </div> */}
     </div>
   );
 };

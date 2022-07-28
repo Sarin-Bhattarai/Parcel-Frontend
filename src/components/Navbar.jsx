@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../utils/css/navbar.css";
 import { isAuthenticated } from "./common/authPermission";
 import { signout } from "../utils/others/authApi";
@@ -17,6 +17,17 @@ import {
 
 const Navbar = () => {
   let navigate = useNavigate();
+  const [active, setActive] = useState("nav__menu");
+  const [toggleIcon, setToggleIcon] = useState("nav__toggler");
+  const navToggle = () => {
+    active === "nav__menu"
+      ? setActive("nav__menu nav__active")
+      : setActive("nav__menu");
+
+    toggleIcon === "nav__toggler"
+      ? setToggleIcon("nav__toggler toggle")
+      : setToggleIcon("nav__toggler");
+  };
   return (
     <>
       <div className="navbar-container">
@@ -36,14 +47,14 @@ const Navbar = () => {
           <a href="/">
             <img className="site-title" src={Logo} alt="Logo" />
           </a>
-          <ul>
-            <li>
+          <ul className={active}>
+            <li className="nav__item">
               <a href="/status">
                 <QuestionCircleOutlined style={{ marginRight: "4px" }} />
                 Tracking
               </a>
             </li>
-            <li>
+            <li className="nav__item">
               <a href="/contact">
                 <ContactsOutlined style={{ marginRight: "4px" }} />
                 Contact
@@ -51,7 +62,7 @@ const Navbar = () => {
             </li>
             {isAuthenticated() && (
               <>
-                <li>
+                <li className="nav__item">
                   <a href="/parcels">
                     <TagOutlined style={{ marginRight: "4px" }} />
                     Parcels
@@ -62,7 +73,7 @@ const Navbar = () => {
 
             {!isAuthenticated() && (
               <>
-                <li>
+                <li className="nav__item">
                   <a href="/login">
                     <LoginOutlined style={{ marginRight: "4px" }} />
                     Login
@@ -78,7 +89,7 @@ const Navbar = () => {
             )}
 
             {isAuthenticated() && (
-              <li>
+              <li className="nav__item">
                 <button
                   className="logout-button"
                   onClick={() =>

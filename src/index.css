@@ -54,7 +54,6 @@
 
 .perform-container {
   padding: 1rem;
-  /* box-shadow: 4px 4px 4px 4px gray; */
   width: 30%;
   display: block;
   margin-left: 35%;
@@ -108,7 +107,6 @@
   border-radius: 5px;
   padding: 20px;
   margin-top: 1%;
-  /* justify-content: center; */
   margin-left: 35%;
 }
 
@@ -166,10 +164,6 @@ select {
 
 .home-span {
   margin-left: 4%;
-}
-
-.icon-boat {
-  font-size: 70px;
 }
 
 .ocean-header {
@@ -238,12 +232,17 @@ select {
   margin-left: 30%;
 }
 
-/* @media screen and (max-width: 1286px) {
-  .home-row-row {
-    display: block !important;
-    text-align: center;
-  }
-} */
+.carousel .slide {
+  background: #fff;
+}
+
+.carousel .control-dots {
+  margin: 60px auto;
+}
+
+.carousel li.slide img {
+  height: 600px;
+}
 
 /* contact page css */
 .contact-header {
