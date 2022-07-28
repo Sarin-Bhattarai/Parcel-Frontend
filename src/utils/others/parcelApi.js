@@ -3,7 +3,7 @@ import axios from "axios";
 
 /* For getting all the parcels*/
 export const getAllParcels = () => {
-  return fetch(`${API}/api/parcels`, {
+  return fetch(`${API}/parcels`, {
     method: "GET",
   }).then((response) => {
     return response.json();
@@ -14,7 +14,7 @@ export const getAllParcels = () => {
 export const createParcel = (payload) => {
   console.log(payload);
   return axios({
-    url: `${API}/api/parcels`,
+    url: `${API}/parcels`,
     method: "POST",
     data: payload,
   });
@@ -22,7 +22,7 @@ export const createParcel = (payload) => {
 
 /* For getting single parcel*/
 export const getSingleParcel = (id) => {
-  return fetch(`${API}/api/parcels/${id}`, {
+  return fetch(`${API}/parcels/${id}`, {
     method: "GET",
   }).then((response) => {
     return response.json();
@@ -31,7 +31,7 @@ export const getSingleParcel = (id) => {
 
 /*For updating parcel */
 export const updateParcel = (id, parcel) => {
-  return fetch(`${API}/api/parcels/${id}`, {
+  return fetch(`${API}/parcels/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -45,7 +45,7 @@ export const updateParcel = (id, parcel) => {
 
 /*For deleting parcel */
 export const deleteParcel = (id) => {
-  return fetch(`${API}/api/parcels/${id}`, {
+  return fetch(`${API}/parcels/${id}`, {
     method: "DELETE",
     headers: {
       Accept: "application/json",
@@ -58,5 +58,5 @@ export const deleteParcel = (id) => {
 
 /* for searching products */
 export const list = (key) => {
-  return axios(`${API}/api/parcels/search/${key.search}`);
+  return axios(`${API}/parcels/search/${key.search}`);
 };

@@ -1,5 +1,4 @@
 import React from "react";
-// import { Col, Row, Button } from "antd";
 import { IoReceiptOutline } from "react-icons/io5";
 import { TbWorldUpload } from "react-icons/tb";
 import first from "../utils/assets/Cargo-1.jpg";
@@ -8,7 +7,6 @@ import gridone from "../utils/assets/grid-one.jpg";
 import gridtwo from "../utils/assets/grid-two.jpg";
 import gridfour from "../utils/assets/grid-five.jpg";
 import gridfive from "../utils/assets/grid-6.jpg";
-import singlegrid from "../utils/assets/singlegrid.jpg";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import "../utils/css/home.css";
@@ -199,101 +197,62 @@ const Home = () => {
       </section>
       <br />
       <br />
-      <div class="drop-container">
-        <div class="columns content">
-          <div class="content-container">
-            <h5>Why do we use it?</h5>
+      <div className="section-container">
+        <div className="columns content">
+          <div className="content-container">
+            <h5>
+              Direct Way Cargo Nepal <br />
+              Saves Your Time!
+            </h5>
+            <div className="icons-row">
+              <IoReceiptOutline />
+            </div>
+            <h3
+              style={{
+                color: "#fff",
+                fontSize: "22px",
+                textAlign: "center",
+              }}
+            >
+              Transparent Pricing
+            </h3>
             <p>
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum is that it has a more-or-less normal
-              distribution of letters, as opposed to using 'Content here,
-              content here', making it look like readable English. Many desktop
-              publishing packages and web page editors now use Lorem Ipsum as
-              their default model text, and a search for 'lorem ipsum' will
-              uncover many web sites still in their infancy. Various versions
-              have evolved over the years, sometimes by accident, sometimes on
-              purpose (injected humour and the like).
+              The world of international supply chains involves a myriad of
+              unknown risks and challenging regulations. It enables consumers to
+              compare costs and make informed choices. Price transparency is
+              important because knowing what others are bidding, asking, and
+              trading can help determine the supply and demand of a security,
+              good, or service, i.e., its true value.
             </p>
+            <div className="icons-row">
+              <TbWorldUpload />
+            </div>
+            <h3
+              style={{
+                color: "#fff",
+                fontSize: "22px",
+                textAlign: "center",
+              }}
+            >
+              Real-Time Tracking
+            </h3>
             <p>
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum is that it has a more-or-less normal
-              distribution of letters, as opposed to using 'Content here,
-              content here', making it look like readable English. Many desktop
-              publishing packages and web page editors now use Lorem Ipsum as
-              their default model text, and a search for 'lorem ipsum' will
-              uncover many web sites still in their infancy. Various versions
-              have evolved over the years, sometimes by accident, sometimes on
-              purpose (injected humour and the like).
+              We ensure our customers supply chains are fully compliant by our
+              integral practices and programs.The tracking method that makes use
+              of GPS as well as logistics databases to determine the current
+              location of a person, vehicle, or object at any moment in time is
+              known as Real-time Tracking. When a parcel is scanned, it is
+              assigned to a vehicle and its position is constantly monitored.
             </p>
+            <div className="btn-row">
+              <a href="/status">
+                <button className="track-btn">Track Your Order</button>
+              </a>
+            </div>
           </div>
         </div>
-        <div class="columns image">&nbsp;</div>
+        <div className="columns image">&nbsp;</div>
       </div>
-      {/* <div className="responsive-services">
-        <Row className="down-row">
-          <Col
-            style={{
-              backgroundColor: "#FF5E14",
-              height: "80vh",
-            }}
-            span={12}
-          >
-            <h2 className="big-header">
-              Direct Way Cargo Nepal
-              <br /> Saves Your Time!
-            </h2>
-            <Row>
-              <Col
-                style={{ backgroundColor: "#FF5E14", marginLeft: "13%" }}
-                span={6}
-              >
-                <IoReceiptOutline className="row-row-icons" />
-                <h3 className="row-row-header">Transparent Pricing</h3>
-                <p className="row-row-pes">
-                  The world of
-                  <br /> international
-                  <br /> supply chains
-                  <br /> involves a myriad
-                  <br /> of unknown risks
-                  <br /> and challenging regulations.
-                </p>
-              </Col>
-              <Col
-                style={{ backgroundColor: "#FF5E14", marginLeft: "13%" }}
-                span={6}
-              >
-                <TbWorldUpload className="row-row-icons" />
-                <h3 className="row-row-header-two">Real-Time Tracking</h3>
-                <p className="row-row-pes-two">
-                  We ensure
-                  <br /> our customers
-                  <br /> supply chains
-                  <br /> are fully compliant
-                  <br /> by our integral
-                  <br /> practices and programs.
-                </p>
-              </Col>
-            </Row>
-            <a href="/status">
-              <Button className="row-row-button" type="loading">
-                Track Your Order
-              </Button>
-            </a>
-          </Col>
-          <Col style={{ height: "80vh" }} span={12}>
-            <img
-              style={{
-                height: "80vh",
-                width: "100%",
-              }}
-              src={singlegrid}
-              alt="singlegridpic"
-            />
-          </Col>
-        </Row>
-      </div> */}
     </div>
   );
 };
